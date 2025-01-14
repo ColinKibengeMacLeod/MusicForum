@@ -2,5 +2,12 @@
 {
     public class Comment
     {
+        public int CommentId { get; set; }
+        public string Content { get; set; } = string.Empty;
+        public DateTime CreateDate { get; set; }
+        public int ThreadId { get; set; }
+
+        // Navigation property
+        public Thread? Thread { get; set; }
     }
 }
