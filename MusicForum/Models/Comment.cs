@@ -7,9 +7,9 @@
         public DateTime CreateDate { get; set; }
 
         //Foreign Key
-        public int ThreadId { get; set; }
+        public int DiscussionId { get; set; }
 
         // Navigation property
-        public Thread? Thread { get; set; }
+        public Thread? Discussion { get; set; }
     }
 }

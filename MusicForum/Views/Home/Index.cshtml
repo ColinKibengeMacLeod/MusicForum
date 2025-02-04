@@ -2,7 +2,24 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model List<MusicForum.Models.Discussion>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>All Discussions</h1>
+
+@foreach (var item in Model)
+{
+    <div>
+        <h2>@item.Title</h2>
+        <p>
+            @item.DiscussionId<br />
+            @item.Content<br />
+            @item.ImageFilename<br />
+            @item.CreateDate<br />
+            <a asp-controller="Home" asp-action="GetDiscussion" asp-route-id="@item.DiscussionId">View</a>
+        </p>
+    </div>
+}

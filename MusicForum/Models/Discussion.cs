@@ -2,9 +2,9 @@
 
 namespace MusicForum.Models
 {
-    public class Thread
+    public class Discussion
     {
-        public int ThreadId { get; set; }
+        public int DiscussionId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Content { get; set; } = string.Empty;
         public string ImageFilename { get; set; } = string.Empty;
