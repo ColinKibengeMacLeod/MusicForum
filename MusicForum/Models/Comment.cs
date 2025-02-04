@@ -10,6 +10,6 @@
         public int DiscussionId { get; set; }
 
         // Navigation property
-        public Thread? Discussion { get; set; }
+        public Discussion? Discussion { get; set; }
     }
 }
