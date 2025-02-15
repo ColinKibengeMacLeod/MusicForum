@@ -46,3 +46,17 @@
 		</td>
 	</tr>
 </table>
+
+@if (Model.Comments != null && Model.Comments.Any())
+{
+	<ul>
+		@foreach (var comment in Model.Comments)
+		{
+			<li>@comment.Content (@comment.CreateDate.ToString("g"))</li>
+		}
+	</ul>
+}
+else
+{
+	<p>No comments yet.</p>
+}

@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-@model List<MusicForum.Models.Discussion>
+﻿@model List<MusicForum.Models.Discussion>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -10,16 +6,30 @@
 
 <h1>All Discussions</h1>
 
+<!--<div>
+    <img src="~/photos/SammySlasher.jpg" alt="Sammy Slasher" class="" />
+</div>-->
+
 @foreach (var item in Model)
 {
-    <div>
-        <h2>@item.Title</h2>
-        <p>
-            @item.DiscussionId<br />
-            @item.Content<br />
-            @item.ImageFilename<br />
-            @item.CreateDate<br />
-            <a asp-controller="Home" asp-action="GetDiscussion" asp-route-id="@item.DiscussionId">View</a>
-        </p>
+    string imageUrl = Url.Content("/photos/" + item.ImageFilename);
+    int commentCount = item.Comments?.Count ?? 0;
+
+    <div class="discussion-post">
+        <a href="@Url.Action("GetDiscussion", "Home", new { id = item.DiscussionId })" class="discussion-link">
+            <img src="@imageUrl" alt="@item.Content" class="thumbnail" />
+            <div class="discussion-content">
+                <h1>@item.Title</h1>
+                <p class="discussion-meta">
+                    <span class="comments-count">💬 @commentCount @(commentCount == 1 ? "Comment" : "Comments")</span>
+                    <span class="date">@item.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
+                </p>
+            </div>
+        </a>
     </div>
+
+    <!--
+    <div>
+        <img src="~/photos/AllieGator.jpg" alt="Sammy Slasher" class="" />
+    </div>-->
 }

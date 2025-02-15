@@ -22,7 +22,9 @@ namespace MusicForum.Controllers
         // GET: Discussions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Discussion.ToListAsync());
+            var discussions = await _context.Discussion.ToListAsync();
+
+            return View(discussions);
         }
 
         // GET: Discussions/Details/5
@@ -54,13 +56,29 @@ namespace MusicForum.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DiscussionId,Title,Content,ImageFilename,CreateDate")] Discussion discussion)
+        public async Task<IActionResult> Create([Bind("DiscussionId,Title,Content,ImageFile,CreateDate")] Discussion discussion)
         {
+            // rename the uploaded file to a guid (unique filename). Set before photo saved in database.
+            discussion.ImageFilename = Guid.NewGuid().ToString() + Path.GetExtension(discussion.ImageFile?.FileName);
+
             if (ModelState.IsValid)
             {
+                // Save discussion in database
                 _context.Add(discussion);
                 await _context.SaveChangesAsync();
+
+                // Save the uploaded file after the photo is saved in the database
+                if (discussion.ImageFile != null)
+                {
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "photos", discussion.ImageFilename);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await discussion.ImageFile.CopyToAsync(fileStream);
+                    }
+                }
+
                 return RedirectToAction(nameof(Index));
+
             }
             return View(discussion);
         }
@@ -70,14 +88,21 @@ namespace MusicForum.Controllers
         {
             if (id == null)
             {
+
                 return NotFound();
+
             }
 
-            var discussion = await _context.Discussion.FindAsync(id);
+            //Get Dicussion by ID and include list of Comments
+            var discussion = await _context.Discussion.Include(m => m.Comments).FirstOrDefaultAsync(m => m.DiscussionId == id);
+
             if (discussion == null)
             {
+
                 return NotFound();
+
             }
+
             return View(discussion);
         }
 
@@ -121,11 +146,13 @@ namespace MusicForum.Controllers
         {
             if (id == null)
             {
+
                 return NotFound();
+
             }
 
-            var discussion = await _context.Discussion
-                .FirstOrDefaultAsync(m => m.DiscussionId == id);
+            var discussion = await _context.Discussion.FirstOrDefaultAsync(m => m.DiscussionId == id);
+
             if (discussion == null)
             {
                 return NotFound();

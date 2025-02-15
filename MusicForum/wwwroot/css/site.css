@@ -1,31 +1,63 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    background: url('/photos/SammySlasher.jpg') no-repeat center center fixed;
+    background-size:cover; /* Ensures the image covers the full screen */
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background static when scrolling */
+    background-color: #222; /* Fallback color in case image fails to load */
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Style the discussion post container */
+.discussion-post {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* Style the link to make the whole item clickable */
+.discussion-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+/* Thumbnail image */
+.thumbnail {
+    width: 50px; /* Uniform thumbnail size */
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%; /* Circular thumbnail */
+    margin-right: 15px;
+}
+
+/* Discussion content container */
+.discussion-content {
+    flex: 1;
+}
+
+    /* Title styling */
+    .discussion-content h2 {
+        font-size: 16px;
+        margin: 0;
+        color: #333;
+    }
+
+/* Metadata: comments count & date */
+.discussion-meta {
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+/* Comments count styling */
+.comments-count {
+    font-weight: bold;
+    color: #007bff;
 }

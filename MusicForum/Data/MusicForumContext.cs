@@ -15,5 +15,6 @@ namespace MusicForum.Data
         }
 
         public DbSet<MusicForum.Models.Discussion> Discussion { get; set; } = default!;
+        public DbSet<MusicForum.Models.Comment> Comment { get; set; } = default!;
     }
 }
