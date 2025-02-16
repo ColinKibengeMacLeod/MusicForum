@@ -19,7 +19,7 @@
         <a href="@Url.Action("GetDiscussion", "Home", new { id = item.DiscussionId })" class="discussion-link">
             <img src="@imageUrl" alt="@item.Content" class="thumbnail" />
             <div class="discussion-content">
-                <h1>@item.Title</h1>
+                <h2>@item.Title</h2>
                 <p class="discussion-meta">
                     <span class="comments-count">💬 @commentCount @(commentCount == 1 ? "Comment" : "Comments")</span>
                     <span class="date">@item.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>

@@ -1,21 +1,36 @@
-body {
-    background: url('/photos/SammySlasher.jpg') no-repeat center center fixed;
-    background-size:cover; /* Ensures the image covers the full screen */
-    background-position: center;
-    background-attachment: fixed; /* Keeps the background static when scrolling */
-    background-color: #222; /* Fallback color in case image fails to load */
+/* Style the discussion post container */
+
+.bg-black-custom {
+    background-color: black !important;
+    opacity: 0.75; /* Bootstrap's bg-opacity-* classes may not work here */
+    color: white !important;
 }
 
-/* Style the discussion post container */
 .discussion-post {
     display: flex;
     align-items: center;
-    background: #f8f9fa;
-    padding: 10px;
+    background: #000000;
+    opacity: 75%;
+    padding: 15px;
+    margin: 5px 0px 5px 0px;
     border-radius: 8px;
     margin-bottom: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 800px;
 }
+
+    /* On hover: Darken background and slightly increase size */
+    .discussion-post:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* On click: Return to original size and background */
+    .discussion-post:active {
+        background: #f8f9fa; /* Original background */
+        transform: scale(1);
+    }
 
 /* Style the link to make the whole item clickable */
 .discussion-link {
@@ -41,16 +56,16 @@ body {
 }
 
     /* Title styling */
-    .discussion-content h2 {
+    .discussion-content {
         font-size: 16px;
         margin: 0;
-        color: #333;
+        color: #ffffff;
     }
 
 /* Metadata: comments count & date */
 .discussion-meta {
     font-size: 14px;
-    color: #666;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
@@ -59,5 +74,5 @@ body {
 /* Comments count styling */
 .comments-count {
     font-weight: bold;
-    color: #007bff;
+    color: #FF0000;
 }
