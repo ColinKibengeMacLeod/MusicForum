@@ -1,62 +1,41 @@
 ﻿@model MusicForum.Models.Discussion
 
 @{
-	ViewData["Title"] = "Get Discussion";
+    ViewData["Title"] = "Get Discussion";
 }
 
-<table>
-	<tr>
-		<td>
-			@Html.DisplayNameFor(model => model.DiscussionId)
-		</td>
-		<td>
-			@Html.DisplayFor(model => model.DiscussionId)
-		</td>
-	</tr>
-	<tr>
-		<td>
-			@Html.DisplayNameFor(model => model.Title)
-		</td>
-		<td>
-			@Html.DisplayFor(model => model.Title)
-		</td>
-	</tr>
-	<tr>
-		<td>
-			@Html.DisplayNameFor(model => model.Content)
-		</td>
-		<td>
-			@Html.DisplayFor(model => model.Content)
-		</td>
-	</tr>
-	<tr>
-		<td>
-			@Html.DisplayNameFor(model => model.ImageFilename)
-		</td>
-		<td>
-			@Html.DisplayFor(model => model.ImageFilename)
-		</td>
-	</tr>
-	<tr>
-		<td>
-			@Html.DisplayNameFor(model => model.CreateDate)
-		</td>
-		<td>
-			@Html.DisplayFor(model => model.CreateDate)
-		</td>
-	</tr>
-</table>
+<div class="center-container">
+    <div class="discussion-post">
+        <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail" />
+        <div class="discussion-content">
+            <h2>@Model.Title</h2>
+            <p>@Model.Content</p>
+            <p class="discussion-meta">
+                <span class="date">@Model.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
+            </p>
+        </div>
+    </div>
 
-@if (Model.Comments != null && Model.Comments.Any())
-{
-	<ul>
-		@foreach (var comment in Model.Comments)
-		{
-			<li>@comment.Content (@comment.CreateDate.ToString("g"))</li>
-		}
-	</ul>
-}
-else
-{
-	<p>No comments yet.</p>
-}
+    <div class="comments-section">
+
+        @if (Model.Comments != null && Model.Comments.Any())
+        {
+            <ul class="comments-list">
+                @foreach (var comment in Model.Comments)
+                {
+                    <li class="comment-item">
+                        <p>@comment.Content</p>
+                        <span class="comment-date">@comment.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="no-comments">No comments yet.</p>
+        }
+    </div>
+
+    <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">➕ Create New Comment</a>
+        
+</div>

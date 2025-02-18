@@ -1,9 +1,10 @@
-/* Style the discussion post container */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
-.bg-black-custom {
-    background-color: black !important;
-    opacity: 0.75; /* Bootstrap's bg-opacity-* classes may not work here */
-    color: white !important;
+h1 {
+    font-family: "Special Elite", serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 20px;
 }
 
 .discussion-post {
@@ -11,7 +12,7 @@
     align-items: center;
     background: #000000;
     opacity: 75%;
-    padding: 15px;
+    padding: 20px;
     margin: 5px 0px 5px 0px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -20,13 +21,23 @@
     width: 800px;
 }
 
-    /* On hover: Darken background and slightly increase size */
+.center-container {
+    display: flex;
+    flex-direction: column; /* Stack posts vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    min-height: 100vh; /* Full height of the viewport */
+    
+}
+
+
+    /* On hover: slightly increase size */
     .discussion-post:hover {
         transform: scale(1.05);
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* On click: Return to original size and background */
+    /* On click: Return to original size */
     .discussion-post:active {
         background: #f8f9fa; /* Original background */
         transform: scale(1);
@@ -56,11 +67,11 @@
 }
 
     /* Title styling */
-    .discussion-content {
-        font-size: 16px;
-        margin: 0;
-        color: #ffffff;
-    }
+.discussion-content {
+    font-size: 16px;
+    //margin-bottom: 10px;
+    color: #ffffff;
+}
 
 /* Metadata: comments count & date */
 .discussion-meta {
@@ -68,7 +79,7 @@
     color: #ffffff;
     display: flex;
     justify-content: space-between;
-    margin-top: 5px;
+    margin-top: 70px;
 }
 
 /* Comments count styling */
@@ -76,3 +87,86 @@
     font-weight: bold;
     color: #FF0000;
 }
+
+/* Comments Section */
+.comments-section {
+    width: 800px;
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 75%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comments-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-item {
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Button Styling */
+.pe-2 {
+    background: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.pe-2:hover {
+    background: #cc0000;
+}
+
+.action-link {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+    .action-link i {
+        margin-right: 5px;
+    }
+
+    /* Edit Button */
+    .action-link.edit {
+        color: #007bff;
+    }
+
+        .action-link.edit:hover {
+            color: #0056b3;
+        }
+
+    /* Details Button */
+    .action-link.details {
+        color: #17a2b8;
+    }
+
+        .action-link.details:hover {
+            color: #117a8b;
+        }
+
+    /* Delete Button */
+    .action-link.delete {
+        color: #dc3545;
+    }
+
+        .action-link.delete:hover {
+            color: #a71d2a;
+        }
+
