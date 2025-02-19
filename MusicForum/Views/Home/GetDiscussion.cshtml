@@ -4,13 +4,13 @@
     ViewData["Title"] = "Get Discussion";
 }
 
-<div class="center-container">
-    <div class="discussion-post">
-        <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail" />
-        <div class="discussion-content">
+<div class="get-center-container">
+    <div class="get-discussion-post">
+        <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
+        <div class="get-discussion-content">
             <h2>@Model.Title</h2>
             <p>@Model.Content</p>
-            <p class="discussion-meta">
+            <p class="discussion-meta-date">
                 <span class="date">@Model.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
             </p>
         </div>

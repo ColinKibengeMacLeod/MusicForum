@@ -1,9 +1,6 @@
 ﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-h1 {
-    font-size: 70px;
-}
 .custom-header {
     height: 250px; /* Adjust height as needed */
     background: url('/photos/header.jpg') no-repeat center center;
@@ -12,7 +9,20 @@ h1 {
     font-weight: 400;
     font-style: normal;
     margin-bottom: 15px;
+    position: relative; /* Ensure positioning works properly */
 }
+
+    .custom-header h1 {
+        position: absolute;
+        top: 45%;
+        left: 18%;
+        transform: translate(-50%, -50%); /* Center h1 perfectly */
+        color: black; /* Adjust for visibility */
+        text-align: center;
+        width: 100%;
+        font-size: 60px;
+    }
+
 
 a.navbar-brand {
   white-space: normal;
@@ -43,15 +53,11 @@ a.navbar-brand {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
 .footer {
-/*  position: absolute;
-  bottom: 0;*/
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background: #000000;
+    opacity: 75%;
+    color: white;
 }
