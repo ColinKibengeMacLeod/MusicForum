@@ -8,7 +8,7 @@
     <div class="get-discussion-post">
         <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
         <div class="get-discussion-content">
-            <h2>@Model.Title</h2>
+            <h3>@Model.Title</h3>
             <p>@Model.Content</p>
             <p class="discussion-meta-date">
                 <span class="date">@Model.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
@@ -32,10 +32,12 @@
         }
         else
         {
-            <p class="no-comments">No comments yet.</p>
+            <p class="no-comments">No comments yet...</p>
         }
+
+        <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">New Comment</a>
+
     </div>
 
-    <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">➕ Create New Comment</a>
         
 </div>

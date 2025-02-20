@@ -8,12 +8,13 @@ h1{
     padding-bottom: 20px;
 }
 
-h2 {
+h3 {
     font-family: "Special Elite", serif;
     font-weight: 400;
     font-style: normal;
-    padding-bottom: 20px;
-    padding-top: 25px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-left: 25px;
     
 }
 
@@ -71,8 +72,8 @@ h2 {
 
 /* Thumbnail image */
 .thumbnail {
-    width: 75px; /* Uniform thumbnail size */
-    height: 75px;
+    width: 65px; /* Uniform thumbnail size */
+    height: 65px;
     object-fit: cover;
     border-radius: 50%; /* Circular thumbnail */
     margin-right: 15px;
@@ -103,41 +104,56 @@ h2 {
 
 /* Comments Section */
 .comments-section {
-    width: 750px;
-    background: #111;
-    padding: 15px;
-    border-radius: 8px;
+    width: 740px;
+    background-image: url('/photos/etienne-martin-v6uiP2MD6vs-unsplash.jpg');
+    background-color: rgba(0, 0, 0, .95); /* Dark overlay */
+    background-blend-mode: multiply; /* Darkens the image */
+    padding: 20px 20px 0px 20px;
+    border-radius: 0px 0px 8px 8px;
     opacity: 75%;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
 }
 
 .comments-list {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
 }
 
 .comment-item {
     background: #222;
-    padding: 10px;
+    padding: 30px;
     border-radius: 5px;
-    margin-bottom: 5px;
-    color: #000000;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.no-comments {
+    color: rgb(61, 60, 60);
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .comment-date {
     font-size: 12px;
-    color: #aaa;
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Button Styling */
 .pe-2 {
     background: #ff0000;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 10px 10px 10px;
     text-decoration: none;
     border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 145px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    margin-left: 10px;
 }
 
 .pe-2:hover {
@@ -199,10 +215,8 @@ color: #dc3545;
     align-items: center;
     background: #000000;
     opacity: 75%;
-    padding: 22.5px 22.5px 0px 22.5px;
-    margin: 5px 0px 5px 0px;
+    padding: 22.5px 50px 0px 50px;
     border-radius: 8px;
-    margin-bottom: 5px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     width: 900px;
@@ -210,13 +224,13 @@ color: #dc3545;
 
 .get-discussion-content p {
     text-align: justify; /* Ensures text is evenly aligned on both left and right */
-    max-width: 450px; /* Adjust to your preference for column width */
+    max-width: 350px; /* Adjust to your preference for column width */
     line-height: 1.7; /* Improves readability */
-    margin: 0px auto 30px auto; /* Center the paragraph horizontally */
+    margin: 0px 20px 30px 85px; /* Center the paragraph horizontally */
     display: block; /* Ensures the paragraph behaves like a block element */
 }
 
-.get-discussion-content h2 {
+.get-discussion-content h3 {
     text-align: center;
 }
 
@@ -235,3 +249,9 @@ color: #dc3545;
     margin-left: 10px;
     margin-bottom: 20px;
 }
+
+.date {
+    display: flex;
+    justify-content: flex-end;
+}
+
