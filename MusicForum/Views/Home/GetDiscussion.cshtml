@@ -21,7 +21,7 @@
         @if (Model.Comments != null && Model.Comments.Any())
         {
             <ul class="comments-list">
-                @foreach (var comment in Model.Comments)
+                @foreach (var comment in Model.Comments.OrderByDescending(d => d.CreateDate))
                 {
                     <li class="comment-item">
                         <p>@comment.Content</p>
