@@ -4,11 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>My Discussions</h1>
+<h1>MY DISCUSSIONS</h1>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="discussionTable">
     <thead>
         <tr>
             <th>
@@ -23,7 +23,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>

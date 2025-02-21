@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 body {
-    background-image: url('/photos/etienne-martin-v6uiP2MD6vs-unsplash.jpg');
     background-color: rgba(0, 0, 0, .95); /* Dark overlay */
-    background-blend-mode: multiply; /* Darkens the image */
 }
-h1{
+
+h1 {
     font-family: "Special Elite", serif;
+    color: white;
     font-weight: 400;
     font-style: normal;
     padding-top: 35px;
     padding-bottom: 20px;
+    text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), /* Strong black shadow */
+    0px 0px 24px rgba(255, 255, 255, 1); /* Subtle white glow */
 }
 
 h3 {
@@ -20,14 +22,12 @@ h3 {
     padding-bottom: 10px;
     padding-top: 20px;
     padding-left: 25px;
-    
 }
 
 .discussion-post {
     display: flex;
     align-items: center;
     background: #000000;
-    opacity: 0.9;
     padding: 25px 0px 0px 25px;
     margin: 5px 0px 5px 0px;
     border: 1.5px solid white;
@@ -99,12 +99,14 @@ h3 {
     width: 100%;
     padding-right: 50px;
     padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 /* Comments count styling */
 .comments-count {
     font-weight: bold;
     color: #FF0000;
+    margin-left: 25px;
 }
 
 /* Comments Section */
@@ -228,7 +230,7 @@ color: #dc3545;
     border-radius: 8px;
     transition: all 0.3s ease;
     width: 900px;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    
     border: 2px solid white;
 }
 
@@ -270,7 +272,45 @@ color: #dc3545;
     background-color: dimgrey;
     border-radius: 10px;
     padding: 10px 20px;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     border: 1.5px solid white;
 }
+
+/*Discussions/Index Page*/
+
+.discussionTable {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Removes spacing between borders */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures border-radius applies */
+    background-color: black; /* Dark background */
+    border: 2px solid white; /* White border for contrast */
+    color: white; /* Text color */
+    text-align: left; /* Align text to the left */
+    margin: 20px 0; /* Adds spacing around the table */
+}
+
+    .discussionTable th {
+        background-color: #222; /* Slightly lighter black for contrast */
+        color: #fff; /* White text */
+        padding: 12px; /* Space around text */
+        text-transform: uppercase; /* Uppercase for emphasis */
+        border-bottom: 2px solid white; /* Strong separation from rows */
+        font-weight: bold; /* Make header text bold */
+    }
+
+    .discussionTable tr {
+        border-bottom: 1px solid #444; /* Light border between rows */
+        transition: background 0.3s ease; /* Smooth hover effect */
+    }
+
+    .discussionTable td {
+        padding: 25px; /* Padding inside cells */
+        border-bottom: 1px solid #444; /* Light border for row separation */
+        text-align: center;
+    }
+
+    .discussionTable tr:hover {
+        background-color: #333; /* Slightly lighter shade on hover */
+    }
+
 
