@@ -9,8 +9,7 @@
         <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
         <div class="get-discussion-content">
             <h3>@Model.Title</h3>
-            <p>@Model.Content</p>
-            <p class="discussion-meta-date">
+            <p>@Model.Content
                 <span class="date">@Model.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
             </p>
         </div>

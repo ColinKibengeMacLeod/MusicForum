@@ -23,6 +23,9 @@ for details on configuring this project to bundle and minify static web assets. 
         text-align: center;
         width: 100%;
         font-size: 60px;
+        text-shadow: 0px 0px 2px black, /* Sharp black outline */
+        0px 0px 4px rgba(0, 0, 0, 0.8), /* Slight blur */
+        0px 0px 20px rgba(255, 255, 255, 0.5); /* Soft fade */
     }
 
 
@@ -30,7 +33,6 @@ a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-    -webkit-text-stroke: .25px black;
 }
 
 .btn-primary {
@@ -47,19 +49,14 @@ a.navbar-brand {
     width: 100%;
     white-space: nowrap;
     line-height: 60px;
-    background: #000000;
-    opacity: 75%;
     color: white;
     margin-top: 100px;
     font-family: "Special Elite", serif;
+    background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
 }
 
 nav {
-    opacity: 0.85;
     -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 1));
 }
 
-.nav-item {
-    -webkit-text-stroke: .25px black;
-}
