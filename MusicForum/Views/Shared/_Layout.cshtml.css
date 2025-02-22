@@ -27,9 +27,10 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    -webkit-text-stroke: .25px black;
 }
 
 .btn-primary {
@@ -50,10 +51,15 @@ a.navbar-brand {
     opacity: 75%;
     color: white;
     margin-top: 100px;
+    font-family: "Special Elite", serif;
 }
 
 nav {
     opacity: 0.85;
     -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 1));
+}
+
+.nav-item {
+    -webkit-text-stroke: .25px black;
 }
