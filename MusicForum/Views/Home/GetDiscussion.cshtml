@@ -4,12 +4,15 @@
     ViewData["Title"] = "Get Discussion";
 }
 
+<h1>THE DETAILS</h1>
+
 <div class="get-center-container">
     <div class="get-discussion-post">
         <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
         <div class="get-discussion-content">
             <h3>@Model.Title</h3>
-            <p>@Model.Content
+            <p>
+                @Model.Content
                 <span class="date">@Model.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
             </p>
         </div>
@@ -23,6 +26,7 @@
                 @foreach (var comment in Model.Comments.OrderByDescending(d => d.CreateDate))
                 {
                     <li class="comment-item">
+                        <strong class="comment-username">AnonymousUser99</strong>
                         <p>@comment.Content</p>
                         <span class="comment-date">@comment.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
                     </li>
@@ -37,6 +41,4 @@
         <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">New Comment</a>
 
     </div>
-
-        
 </div>

@@ -30,7 +30,8 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a href="@Url.Action("GetDiscussion", "Home", new { id = ViewBag.DiscussionId })" class="discussion-link">Back</a>
+
 </div>
 
 @section Scripts {
