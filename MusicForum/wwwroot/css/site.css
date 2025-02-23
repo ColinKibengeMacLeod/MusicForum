@@ -26,7 +26,7 @@ h3 {
     font-family: "Special Elite", serif;
     font-weight: 200;
     font-style: normal;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px 20px 0px;
     -webkit-text-stroke: 0.5px black;
     font-size: 35px;
     width: 500px;
@@ -90,10 +90,9 @@ h3 {
     width: 100px; /* Uniform thumbnail size */
     height: 100px;
     object-fit: cover;
-    margin-right: 15px;
     box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
     border-radius: 3px;
-    margin-left: 15px;
+    margin-left: 25px;
 }
 
 /* Discussion content container */
@@ -118,7 +117,7 @@ h3 {
 .comments-count {
     font-weight: bold;
     color: #FF0000;
-    margin-left: 25px;
+    margin-left: 45px;
 }
 
 /* Comments Section */
@@ -309,17 +308,17 @@ color: #dc3545;
     background-color: rgba(0,0,0,0.5); /* Dark background */
     color: white; /* Text color */
     text-align: center; /* Align text to the left */
-    margin: 20px auto; /* Adds spacing around the table */
+    margin: 50px auto; /* Adds spacing around the table */
 
 }
 
     .discussionTable th {
-        background-color: #222; /* Slightly lighter black for contrast */
+        background-color: black; /* Slightly lighter black for contrast */
         color: #fff; /* White text */
         padding: 12px; /* Space around text */
         text-transform: uppercase; /* Uppercase for emphasis */
-        font-weight: bold; /* Make header text bold */
         font-family: "Special Elite", serif;
+        border-bottom: 1px groove white;
     }
 
     .discussionTable tr {
@@ -328,11 +327,50 @@ color: #dc3545;
 
     .discussionTable td {
         padding: 50px; /* Padding inside cells */
-        text-align: center;
     }
 
     .discussionTable tr:hover {
         background-color: black; /* Slightly lighter shade on hover */
     }
+
+td {
+    max-width: 900px; /* Limits width for a column-like effect */
+    margin: 20px auto; /* Centers the text block */
+    text-align: justify; /* Aligns text like in newspapers */
+    line-height: 1.6; /* Improves readability */
+    text-align: center;
+    }
+
+.btn-custom {
+    background: linear-gradient(135deg, #ff0000, #cc0000); /* Bold red gradient */
+    color: white;
+    padding: 12px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: inline-block;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2); /* Subtle glow */
+    transition: all 0.3s ease-in-out;
+}
+
+    /* Hover Effect */
+    .btn-custom:hover {
+        background: linear-gradient(135deg, #cc0000, #990000); /* Darker red on hover */
+        box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+    }
+
+    /* Focus (Accessibility) */
+    .btn-custom:focus {
+        outline: 3px solid #ffffff;
+        outline-offset: 3px;
+    }
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
 
 
