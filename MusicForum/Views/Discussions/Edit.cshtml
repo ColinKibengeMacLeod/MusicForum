@@ -35,16 +35,6 @@
             <div class="mb-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
-            <div class="mb-3">
-                <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">New Comment</a>
-                @if (Model.Comments != null)
-                {
-                    foreach(var comment in Model.Comments)
-                    {
-                        <span class="badge rounded-pill text-bg-light pe-2">@comment.Content</span>
-                    }
-                }
-            </div>
         </form>
     </div>
 </div>

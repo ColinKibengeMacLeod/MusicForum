@@ -33,6 +33,7 @@ h3 {
     text-align: center; /* Centers the text */
     margin: 0 auto; /* Centers the element itself */
     display: block; /* Ensures it behaves like a block element */
+    color: white;
 }
 
 .discussion-post {
@@ -124,8 +125,7 @@ h3 {
 .comments-section {
     width: 740px;
     background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
-    padding: 20px 20px 0px 20px;
-    margin-bottom: 100px;
+    padding: 20px 20px 20px 20px;
     border: 2px solid white;
     border-radius: 3px;
 }
@@ -149,12 +149,6 @@ h3 {
     box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
 }
 
-.no-comments {
-    color: white;
-    margin-left: 20px;
-    padding: 10px 0px;
-}
-
 .comment-date {
     font-size: 12px;
     color: #ffffff;
@@ -164,21 +158,21 @@ h3 {
 
 /* Button Styling */
 .pe-2 {
-    background: #ff0000;
+    display: block;
+    width: 145px; /* Keep button width */
+    margin: 0px auto 35px auto; /* Centers horizontally */
+    padding: 10px;
+    background: #007bff; /* Standard Bootstrap blue */
     color: white;
-    padding: 10px 10px 10px 10px;
     text-decoration: none;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    width: 145px;
-    margin-bottom: 30px;
-    font-weight: bold;
-    margin-left: 10px; /* Pushes it to the right */
+    font-weight:600;
+    text-align: center;
 }
 
+
 .pe-2:hover {
-    background: #cc0000;
+    background: #0056b3;
 }
 
 .action-link {
@@ -283,7 +277,7 @@ color: #dc3545;
     justify-content: flex-end;
 }
 
-.comment-item p {
+.comment-item p, .no-comments {
     background-color: black;
     border-radius: 3px;
     padding: 20px 30px;
@@ -292,6 +286,7 @@ color: #dc3545;
     margin: 20px auto; /* Centers the text block */
     text-align: justify; /* Aligns text like in newspapers */
     line-height: 1.6; /* Improves readability */
+    color: white;
 }
 
 .comment-date {

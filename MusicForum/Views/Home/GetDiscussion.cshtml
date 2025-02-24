@@ -19,6 +19,8 @@
     </div>
 
     <div class="comments-section">
+        <h3>Join the Conversation</h3>
+        <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">New Comment</a>
 
         @if (Model.Comments != null && Model.Comments.Any())
         {
@@ -37,8 +39,5 @@
         {
             <p class="no-comments">No comments yet...</p>
         }
-
-        <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">New Comment</a>
-
     </div>
 </div>
