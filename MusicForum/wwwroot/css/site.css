@@ -362,8 +362,12 @@ form {
     background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
     border: 2px solid white;
     border-radius: 3px;
-    padding: 50px;
+    padding: 30px; /* Reduced padding to make the form smaller */
+    width: 100%; /* Adjust the width to 70% of its parent container */
+    max-width: 1000px; /* Prevents the form from getting too wide */
+    margin: 0 auto; /* Centers the form horizontally */
 }
+
 
 label {
     color: white;
