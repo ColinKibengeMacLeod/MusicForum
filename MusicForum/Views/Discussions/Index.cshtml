@@ -6,7 +6,7 @@
 
 <h1>MY DISCUSSIONS</h1>
 <p class="btn-container">
-    <a asp-action="Create" class="btn-custom">Create New</a>
+    <a asp-action="Create" class="pe-2">Create New</a>
 </p>
 
 <table class="discussionTable">
@@ -35,9 +35,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
+                <td class="column-content">
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
                 <td>
                     <img src="@Url.Content("~/photos/" + item.ImageFilename)" alt="Image Thumbnail" width="150" height="150" style="object-fit: cover; border-radius: 5px;">
                 </td>

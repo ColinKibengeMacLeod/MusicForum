@@ -6,42 +6,58 @@
 
 <h1>NEW DISCUSSION</h1>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-3">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="ImageFile" class="form-label"></label>
-                <input type="file" asp-for="ImageFile" class="form-control" />
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="CreateDate" class="control-label"></label>
-                <input asp-for="CreateDate" class="form-control" />
-                <span asp-validation-for="CreateDate" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Create" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Title" class="control-label">Title</label>
+        <input asp-for="Title" class="form-control custom-input" />
+        <span asp-validation-for="Title" class="text-danger"></span>
     </div>
-</div>
+
+    <div class="mb-3">
+        <label asp-for="Content" class="control-label">Discussion</label>
+        <textarea asp-for="Content" class="form-control custom-input" id="myTextarea"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ImageFile" class="form-label">Image</label>
+        <input type="file" asp-for="ImageFile" class="form-control custom-input" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CreateDate" class="control-label">Date Created</label>
+        <input asp-for="CreateDate" class="form-control custom-input" />
+        <span asp-validation-for="CreateDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
 
 <div>
-    <a asp-controller="Discussion" asp-action="Edit" asp-route-id="">Back to List</a>
+    <a href="@Url.Action("Index", "Discussions")">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+<!-- Include TinyMCE script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/tinymce.min.js"></script>
+
+<!-- Initialize TinyMCE editor -->
+<script>
+    tinymce.init({
+        selector: '#myTextarea',  // This targets the textarea
+        menubar: false,            // Disable menu bar
+        toolbar: 'bold italic underline | alignleft aligncenter alignright | bullist numlist | link',  // Toolbar buttons
+        plugins: 'lists link',     // Add plugins for lists and links
+        height: 300                // Set the height of the editor
+    });
+</script>

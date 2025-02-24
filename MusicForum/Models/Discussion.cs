@@ -9,7 +9,7 @@ namespace MusicForum.Models
         public int DiscussionId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Content { get; set; } = string.Empty;
-        [Display(Name = "Image File Type")]
+        [Display(Name = "Image")]
         public string ImageFilename { get; set; } = string.Empty;
 
         //Property for file upload, not mapped in EF

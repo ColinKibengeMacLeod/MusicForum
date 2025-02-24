@@ -50,6 +50,10 @@ h3 {
     text-align: center;
 }
 
+.custom-input:focus {
+    outline: none;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 35px, rgba(255, 255, 255, 0.1) 0px 0px 15px;
+}
 
 .center-container {
     display: flex;
@@ -123,7 +127,7 @@ h3 {
 
 /* Comments Section */
 .comments-section {
-    width: 740px;
+    width: 750px;
     background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
     padding: 20px 20px 20px 20px;
     border: 2px solid white;
@@ -169,7 +173,6 @@ h3 {
     font-weight:600;
     text-align: center;
 }
-
 
 .pe-2:hover {
     background: #0056b3;
@@ -296,37 +299,49 @@ color: #dc3545;
 /*Discussions/Index Page*/
 
 .discussionTable {
-    width: 90%; /* Full width */
-    border-collapse: collapse; /* Removes spacing between borders */
-    border-radius: 3px; /* Rounded corners */
-    overflow: hidden; /* Ensures border-radius applies */
-    background-color: rgba(0,0,0,0.5); /* Dark background */
-    color: white; /* Text color */
-    text-align: center; /* Align text to the left */
-    margin: 50px auto; /* Adds spacing around the table */
-
+    width: 100%; /* Expands table to full container width */
+    max-width: 1200px; /* Prevents excessive stretching */
+    border-collapse: collapse;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    margin: 20px auto; /* Adds spacing around the table */
 }
 
-    .discussionTable th {
-        background-color: black; /* Slightly lighter black for contrast */
-        color: #fff; /* White text */
-        padding: 12px; /* Space around text */
-        text-transform: uppercase; /* Uppercase for emphasis */
-        font-family: "Special Elite", serif;
-        border-bottom: 1px groove white;
-    }
+.discussionTable th,
+.discussionTable td {
+    padding: 30px; /* Adjusted for better spacing */
+    word-wrap: break-word; /* Prevents text overflow */
+    white-space: normal; /* Ensures text wraps properly */
+    min-width: 210px; /* Ensures columns are not too narrow */
+}
 
-    .discussionTable tr {
-        transition: background 0.3s ease; /* Smooth hover effect */
-    }
+th {
+    border-bottom: 1px solid white;
+}
 
-    .discussionTable td {
-        padding: 50px; /* Padding inside cells */
-    }
+.discussionTable tr {
+    transition: background 0.3s ease; /* Smooth hover effect */
+}
 
-    .discussionTable tr:hover {
-        background-color: black; /* Slightly lighter shade on hover */
-    }
+td > img {
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+}
+
+.column-content {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.discussionTable tr:hover {
+    background-color: black; /* Slightly lighter shade on hover */
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
 
 td {
     max-width: 900px; /* Limits width for a column-like effect */
@@ -336,36 +351,32 @@ td {
     text-align: center;
     }
 
-.btn-custom {
-    background: linear-gradient(135deg, #ff0000, #cc0000); /* Bold red gradient */
-    color: white;
-    padding: 12px 18px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 1rem;
-    text-transform: uppercase;
-    display: inline-block;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2); /* Subtle glow */
-    transition: all 0.3s ease-in-out;
-}
-
-    /* Hover Effect */
-    .btn-custom:hover {
-        background: linear-gradient(135deg, #cc0000, #990000); /* Darker red on hover */
-        box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.3);
-        transform: scale(1.05);
-    }
-
-    /* Focus (Accessibility) */
-    .btn-custom:focus {
-        outline: 3px solid #ffffff;
-        outline-offset: 3px;
-    }
-
 .btn-container {
     display: flex;
     justify-content: center;
+}
+
+/* Discussions/Create */
+
+form {
+    background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
+    border: 2px solid white;
+    border-radius: 3px;
+    padding: 50px;
+}
+
+label {
+    color: white;
+    font-family: "Special Elite", serif;
+}
+
+.custom-input {
+    background-color: black;
+    color: white;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
 }
 
 
