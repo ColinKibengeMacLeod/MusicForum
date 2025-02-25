@@ -10,23 +10,18 @@ for details on configuring this project to bundle and minify static web assets. 
     font-style: normal;
     margin-bottom: 15px;
     position: relative; /* Ensure positioning works properly */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 96%, rgba(0, 0, 0, 0));
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 96%, rgba(0, 0, 0, 0));
 }
 
-.custom-header h1 {
-    position: absolute;
-    top: 45%;
-    left: 18%;
-    transform: translate(-50%, -50%); /* Center h1 perfectly */
-    color: black; /* Adjust for visibility */
-    text-align: center;
-    width: 100%;
-    font-size: 60px;
-    text-shadow: 0px 0px 2px black, /* Sharp black outline */
-    0px 0px 4px rgba(0, 0, 0, 0.8), /* Slight blur */
-    0px 0px 20px rgba(255, 255, 255, 0.5); /* Soft fade */
-}
+    .custom-header h1 {
+        position: absolute;
+        top: 45%;
+        left: 18%;
+        transform: translate(-50%, -50%); /* Center h1 perfectly */
+        color: #D3D3D3; /* Adjust for visibility */
+        text-align: center;
+        width: 100%;
+        font-size: 60px;
+    }
 
 
 a.navbar-brand {
@@ -49,7 +44,7 @@ a.navbar-brand {
     width: 100%;
     white-space: nowrap;
     line-height: 60px;
-    color: white;
+    color: #D3D3D3;
     margin-top: 100px;
     font-family: "Special Elite", serif;
     background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
