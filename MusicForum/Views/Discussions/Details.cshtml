@@ -7,11 +7,6 @@
 <h1>DISCUSSION DETAILS</h1>
 
 <div>
-    <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Content" />
-</div>
-
-<div>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
@@ -29,7 +24,7 @@
             @Html.DisplayNameFor(model => model.ImageFilename)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageFilename)
+            <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreateDate)
