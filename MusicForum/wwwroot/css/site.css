@@ -2,7 +2,7 @@
 
 body {
     background-image: url('../photos/brian-patrick-tagalog-_8hgfbxwd0a-unsplash.jpg');
-    background-color: rgba(0, 0, 0, 0.2); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.1); /* Dark overlay */
     background-blend-mode: multiply; /* Blends the dark color with the image */
     background-size: cover; /* Ensures image covers the whole viewport */
     background-position: center center; /* Centers the image */
@@ -45,7 +45,7 @@ h3 {
     font-style: normal;
     padding: 10px 0px 20px 0px;
     -webkit-text-stroke: 1px black;
-    font-size: 35px;
+    font-size: 43px;
     width: 500px;
     text-align: center; /* Centers the text */
     margin: 0 auto; /* Centers the element itself */
@@ -84,7 +84,7 @@ h3 {
 /* On hover: slightly increase size, dark background, and box-shadow */
 .discussion-post:hover {
     transform: scale(1.05);
-    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.2); /* Dark background with opacity */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
 }
 
@@ -145,11 +145,18 @@ h3 {
 /* Comments Section */
 .comments-section {
     width: 750px;
-    background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
     padding: 20px 20px 20px 20px;
     border: 2px solid #D3D3D3;
     border-radius: 3px;
 }
+
+    .comments-section h3 {
+        text-align: center;
+        font-weight: 200;
+        font-size: 45px;
+        -webkit-text-stroke: 1px black;
+    }
 
 .comment-username {
     font-family: "Special Elite", serif;
@@ -247,7 +254,7 @@ color: #dc3545;
 .get-discussion-post {
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
     padding: 22.5px 50px 0px 50px;
     transition: all 0.3s ease;
     width: 900px;
@@ -270,7 +277,8 @@ color: #dc3545;
 .get-discussion-content h3 {
     text-align: center;
     font-weight: 200;
-    font-size: 35px;
+    font-size: 45px;
+    -webkit-text-stroke: 1px black;
 }
 
 /* Title styling */
@@ -321,7 +329,7 @@ color: #dc3545;
     border-collapse: separate; /* Ensures border-radius works */
     border-spacing: 0; /* Prevents gaps between borders */
     border-radius: 5px; /* Apply rounded corners */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     color: #D3D3D3;
     text-align: center;
     margin: 20px auto;
@@ -399,7 +407,7 @@ td {
 /* Discussions/Create */
 
 form {
-    background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
     border: 2px solid #D3D3D3;
     border-radius: 3px;
     padding: 50px 70px; /* Reduced padding to make the form smaller */
@@ -408,12 +416,11 @@ form {
     margin: 10px auto 0 auto; /* Centers the form and moves it 10px down */
 }
 
-
-
 label {
     color: #D3D3D3;
     font-family: "Special Elite", serif;
     font-size: 20px;
+    margin-bottom: 3px;
 }
 
 .custom-input {
@@ -435,3 +442,6 @@ input[type="file"] {
     cursor: pointer; /* Change cursor on hover */
     border-radius: 5px; /* Rounded corners */
 }
+
+/* Comments/Create*/
+
