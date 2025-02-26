@@ -39,7 +39,7 @@
                     @Html.DisplayFor(modelItem => item.Content)
                 </td>
                 <td>
-                    <img src="@Url.Content("~/photos/" + item.ImageFilename)" alt="Image Thumbnail" width="150" height="150" style="object-fit: cover; border-radius: 5px;">
+                    <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)" alt="Image Thumbnail" width="150" height="150" style="object-fit: cover; border-radius: 5px;">
                 </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreateDate)

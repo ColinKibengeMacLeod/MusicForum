@@ -20,6 +20,19 @@ h1 {
     font-size: 60px;
     text-align: center;
 }
+h4 {
+    color: white;
+    font-weight: bold;
+    font-size: 70px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    padding-left: 35px;
+    text-shadow: -12px -12px 8px rgba(100, 100, 100, 1), /* Darker, stronger top-left shadow */
+    12px 12px 8px rgba(100, 100, 100, 0.7), /* Darker, stronger bottom-right shadow */
+    -20px 20px 12px rgba(50, 50, 50, 0.7), /* Even deeper offset with darker shade */
+    0px 0px 18px rgba(30, 30, 30, 0.7), /* Bold glowing halo with a dark hue */
+    4px 4px 6px rgba(50, 50, 50, 1); /* Subtle darker edge */
+}
 
 dl {
 color: #D3D3D3;
@@ -302,29 +315,47 @@ color: #dc3545;
 /*Discussions/Index Page*/
 
 .discussionTable {
-    width: 100%; /* Expands table to full container width */
-    max-width: 1200px; /* Prevents excessive stretching */
-    border-collapse: collapse;
-    border-radius: 5px;
-    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    border: 2px solid #D3D3D3;
+    border-collapse: separate; /* Ensures border-radius works */
+    border-spacing: 0; /* Prevents gaps between borders */
+    border-radius: 5px; /* Apply rounded corners */
     background-color: rgba(0, 0, 0, 0.5);
     color: #D3D3D3;
     text-align: center;
-    margin: 20px auto; /* Adds spacing around the table */
+    margin: 20px auto;
 }
+
+    .discussionTable th:first-child {
+        border-top-left-radius: 10px;
+    }
+
+    .discussionTable th:last-child {
+        border-top-right-radius: 10px;
+    }
+
+    .discussionTable tr:last-child td:first-child {
+        border-bottom-left-radius: 10px;
+    }
+
+    .discussionTable tr:last-child td:last-child {
+        border-bottom-right-radius: 10px;
+    }
+
 
 .discussionTable th,
 .discussionTable td {
-    padding: 30px; /* Adjusted for better spacing */
+    padding: 20px; /* Adjusted for better spacing */
     word-wrap: break-word; /* Prevents text overflow */
     white-space: normal; /* Ensures text wraps properly */
-    min-width: 210px; /* Ensures columns are not too narrow */
+    min-width: 260px; /* Ensures columns are not too narrow */
 }
 
 th {
-    border-bottom: 1px solid #D3D3D3;
-    ;
+    border-bottom: 2px solid #D3D3D3;
     font-family: "Special Elite", serif;
+    background-color: black;
 }
 
 .discussionTable tr {
@@ -337,6 +368,10 @@ td > img {
     object-fit: cover;
 }
 
+.indexImg {
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
+}
+
 .column-content {
     text-align: justify;
     line-height: 1.6;
@@ -345,7 +380,6 @@ td > img {
 .discussionTable tr:hover {
     background-color: black; /* Slightly lighter shade on hover */
     border-top: 1px solid #D3D3D3;
-    ;
     border-bottom: 1px solid #D3D3D3;
 }
 
@@ -370,14 +404,16 @@ form {
     border-radius: 3px;
     padding: 50px 70px; /* Reduced padding to make the form smaller */
     width: 100%; /* Adjust the width to 70% of its parent container */
-    max-width: 1000px; /* Prevents the form from getting too wide */
-    margin: 0 auto; /* Centers the form horizontally */
+    max-width: 750px; /* Prevents the form from getting too wide */
+    margin: 10px auto 0 auto; /* Centers the form and moves it 10px down */
 }
+
 
 
 label {
     color: #D3D3D3;
     font-family: "Special Elite", serif;
+    font-size: 20px;
 }
 
 .custom-input {
@@ -389,4 +425,13 @@ label {
     box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
 }
 
+/* Discussions/Create */
 
+input[type="file"] {
+    color: white; /* Change text color */
+    background-color: black; /* Background color */
+    border: 1px solid #333;
+    padding: 10px; /* Adjust padding */
+    cursor: pointer; /* Change cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+}

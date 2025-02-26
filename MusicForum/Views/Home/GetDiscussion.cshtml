@@ -8,8 +8,17 @@
 
 <div class="get-center-container">
     <div class="get-discussion-post">
-        <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
-        <div class="get-discussion-content">
+        @if (!string.IsNullOrEmpty(Model.ImageFilename))
+        {
+            <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
+        }
+        else
+        {
+           
+        }
+
+        <!-- Add a class to the .get-discussion-content to center it if the image is not available -->
+        <div class="get-discussion-content @(string.IsNullOrEmpty(Model.ImageFilename) ? "centered-content" : "")">
             <h3>@Model.Title</h3>
             <p>
                 @Model.Content

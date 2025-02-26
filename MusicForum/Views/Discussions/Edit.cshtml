@@ -6,10 +6,9 @@
 
 <h1>EDIT DISCUSSION</h1>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Edit" class="mb-5">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="DiscussionId" />
             <div class="mb-3">
@@ -32,7 +31,7 @@
                 <input asp-for="CreateDate" class="form-control" />
                 <span asp-validation-for="CreateDate" class="text-danger"></span>
             </div>
-            <div class="mb-3">
+            <div>
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -40,7 +39,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="pe-2" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

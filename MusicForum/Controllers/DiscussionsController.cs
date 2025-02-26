@@ -58,30 +58,38 @@ namespace MusicForum.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("DiscussionId,Title,Content,ImageFile,CreateDate")] Discussion discussion)
         {
-            // rename the uploaded file to a guid (unique filename). Set before photo saved in database.
-            discussion.ImageFilename = Guid.NewGuid().ToString() + Path.GetExtension(discussion.ImageFile?.FileName);
+            // Decode Content to prevent double encoding
+            discussion.Content = System.Net.WebUtility.HtmlDecode(discussion.Content);
+
+            if (discussion.ImageFile != null && discussion.ImageFile.Length > 0)
+            {
+                // Only assign a filename if an image is uploaded
+                discussion.ImageFilename = Guid.NewGuid().ToString() + Path.GetExtension(discussion.ImageFile.FileName);
+
+                // Save the uploaded image file
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "photos", discussion.ImageFilename);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await discussion.ImageFile.CopyToAsync(fileStream);
+                }
+            }
+            else
+            {
+                // Ensure ImageFilename remains null if no file is uploaded
+                discussion.ImageFilename = null;
+            }
 
             if (ModelState.IsValid)
             {
-                // Save discussion in database
                 _context.Add(discussion);
                 await _context.SaveChangesAsync();
-
-                // Save the uploaded file after the photo is saved in the database
-                if (discussion.ImageFile != null)
-                {
-                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "photos", discussion.ImageFilename);
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await discussion.ImageFile.CopyToAsync(fileStream);
-                    }
-                }
-
                 return RedirectToAction(nameof(Index));
-
             }
+
             return View(discussion);
         }
+
+
 
         // GET: Discussions/Edit/5
         public async Task<IActionResult> Edit(int? id)

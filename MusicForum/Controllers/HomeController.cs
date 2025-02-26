@@ -28,10 +28,19 @@ namespace MusicForum.Controllers
         //Discussion Details Page
         public async Task<IActionResult> GetDiscussion(int id)
         {
-            var discussion = await _context.Discussion.Include(d => d.Comments).FirstOrDefaultAsync(m => m.DiscussionId == id);
+            var discussion = await _context.Discussion
+                .Include(d => d.Comments)
+                .FirstOrDefaultAsync(m => m.DiscussionId == id);
+
+            // Ensure that ImageFilename is set to null if it doesn't exist or is empty
+            if (discussion != null && string.IsNullOrEmpty(discussion.ImageFilename))
+            {
+                discussion.ImageFilename = null;
+            }
 
             return View(discussion);
         }
+
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

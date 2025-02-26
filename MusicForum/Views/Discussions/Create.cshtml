@@ -6,41 +6,41 @@
 
 <h1>NEW DISCUSSION</h1>
 
+<div>
+    <a class="pe-2" href="@Url.Action("Index", "Discussions")">Back to List</a>
+</div>
+
 <form asp-action="Create" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <div class="mb-3">
+    <div class="mb-4">
         <label asp-for="Title" class="control-label">Title</label>
         <input asp-for="Title" class="form-control custom-input" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-4">
         <label asp-for="Content" class="control-label">Discussion</label>
         <textarea asp-for="Content" class="form-control custom-input" id="myTextarea"></textarea>
         <span asp-validation-for="Content" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-4">
         <label asp-for="ImageFile" class="form-label">Image</label>
         <input type="file" asp-for="ImageFile" class="form-control custom-input" />
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-4">
         <label asp-for="CreateDate" class="control-label">Date Created</label>
         <input asp-for="CreateDate" class="form-control custom-input" />
         <span asp-validation-for="CreateDate" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        <input type="submit" value="Create" class="pe-2" />
     </div>
 </form>
-
-<div>
-    <a href="@Url.Action("Index", "Discussions")">Back to List</a>
-</div>
 
 @section Scripts {
     @{
@@ -53,11 +53,13 @@
 
 <!-- Initialize TinyMCE editor -->
 <script>
-    tinymce.init({
-        selector: '#myTextarea',  // This targets the textarea
-        menubar: false,            // Disable menu bar
-        toolbar: 'bold italic underline | alignleft aligncenter alignright | bullist numlist | link',  // Toolbar buttons
-        plugins: 'lists link',     // Add plugins for lists and links
-        height: 300                // Set the height of the editor
+        tinymce.init({
+        selector: '#myTextarea',
+        menubar: false,
+        toolbar: 'bold italic underline | alignleft aligncenter alignright | bullist numlist | link',
+        plugins: 'lists link',
+        height: 300,
+        entity_encoding: "raw",  // Prevents unwanted HTML encoding
+        forced_root_block: 'p',  // Ensures paragraphs are wrapped properly
     });
 </script>

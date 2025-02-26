@@ -6,17 +6,19 @@
 
 
 <div class="center-container">
-
     <h1>ALL DISCUSSIONS</h1>
 
     @foreach (var item in Model.OrderByDescending(d => d.CreateDate))
     {
-        string imageUrl = Url.Content("/photos/" + item.ImageFilename);
+        string imageUrl = !string.IsNullOrEmpty(item.ImageFilename) ? Url.Content("/photos/" + item.ImageFilename) : null;
         int commentCount = item.Comments?.Count ?? 0;
 
         <div class="discussion-post">
             <a href="@Url.Action("GetDiscussion", "Home", new { id = item.DiscussionId })" class="discussion-link">
-                <img src="@imageUrl" alt="@item.Content" class="thumbnail" />
+                @if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    <img src="@imageUrl" alt="@item.Content" class="thumbnail" />
+                }
                 <div class="discussion-content">
                     <h3>@item.Title</h3>
                     <p class="discussion-meta">
@@ -27,4 +29,6 @@
             </a>
         </div>
     }
+
+
 </div>
