@@ -2,7 +2,7 @@
 
 body {
     background-image: url('../photos/brian-patrick-tagalog-_8hgfbxwd0a-unsplash.jpg');
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.2); /* Dark overlay */
     background-blend-mode: multiply; /* Blends the dark color with the image */
     background-size: cover; /* Ensures image covers the whole viewport */
     background-position: center center; /* Centers the image */
@@ -16,16 +16,16 @@ h1 {
     font-style: normal;
     padding-top: 35px;
     padding-bottom: 20px;
-    -webkit-text-stroke: 2px black;
-    font-size: 60px;
+    -webkit-text-stroke: 2.5px black;
+    font-size: 70px;
     text-align: center;
 }
 h4 {
     color: white;
     font-weight: bold;
-    font-size: 70px;
+    font-size: 55px;
     padding-top: 35px;
-    padding-bottom: 25px;
+    padding-bottom: 40px;
     padding-left: 35px;
     text-shadow: -12px -12px 8px rgba(100, 100, 100, 1), /* Darker, stronger top-left shadow */
     12px 12px 8px rgba(100, 100, 100, 0.7), /* Darker, stronger bottom-right shadow */
