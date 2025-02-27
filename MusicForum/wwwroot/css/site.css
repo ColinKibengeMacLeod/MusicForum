@@ -2,7 +2,7 @@
 
 body {
     background-image: url('../photos/brian-patrick-tagalog-_8hgfbxwd0a-unsplash.jpg');
-    background-color: rgba(0, 0, 0, 0.1); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
     background-blend-mode: multiply; /* Blends the dark color with the image */
     background-size: cover; /* Ensures image covers the whole viewport */
     background-position: center center; /* Centers the image */
@@ -12,30 +12,29 @@ body {
 
 h1 {
     font-family: "Special Elite", serif;
-    color: #D3D3D3;
+    color: #DDDDDD;
     font-style: normal;
     padding-top: 35px;
     padding-bottom: 20px;
-    -webkit-text-stroke: 2.5px black;
+    -webkit-text-stroke: 2.5px #1F1F1F;
     font-size: 70px;
     text-align: center;
 }
+
 h4 {
     color: white;
     font-weight: bold;
-    font-size: 55px;
     padding-top: 35px;
     padding-bottom: 40px;
-    padding-left: 35px;
-    text-shadow: -12px -12px 8px rgba(100, 100, 100, 1), /* Darker, stronger top-left shadow */
-    12px 12px 8px rgba(100, 100, 100, 0.7), /* Darker, stronger bottom-right shadow */
-    -20px 20px 12px rgba(50, 50, 50, 0.7), /* Even deeper offset with darker shade */
-    0px 0px 18px rgba(30, 30, 30, 0.7), /* Bold glowing halo with a dark hue */
-    4px 4px 6px rgba(50, 50, 50, 1); /* Subtle darker edge */
+    text-shadow: -4px -4px 0 rgba(31, 31, 31, 0.7), /* Top-left */
+    4px 4px 0 rgba(31, 31, 31, 0.5), /* Bottom-right */
+    -6px 6px 0 rgba(31, 31, 31, 0.8), /* Extra depth */
+    6px -6px 0 rgba(31, 31, 31, 0.4); /* Opposite diagonal */
 }
 
+
 dl {
-color: #D3D3D3;
+color: #DDDDDD;
 }
 
 
@@ -50,21 +49,22 @@ h3 {
     text-align: center; /* Centers the text */
     margin: 0 auto; /* Centers the element itself */
     display: block; /* Ensures it behaves like a block element */
-    color: #D3D3D3;
+    color: #DDDDDD;
 }
 
 .discussion-post {
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
     padding: 35px 0px 0px 25px;
     margin: 5px 0px 5px 0px;
-    border: 2px solid #D3D3D3;
+    border: 3px solid #DDDDDD;
     margin-bottom: 15px;
     width: 800px;
     transition: transform 0.5s ease, background 0.5s ease; /* Smooth transition */
-    border-radius: 3px;
+    border-radius: 7px;
     text-align: center;
+    backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
 
 .custom-input:focus {
@@ -81,12 +81,14 @@ h3 {
     
 }
 
-/* On hover: slightly increase size, dark background, and box-shadow */
+/* On hover: slightly increase size, dark background, and blur effect */
 .discussion-post:hover {
     transform: scale(1.05);
-    background: rgba(0, 0, 0, 0.2); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.6); /* Dark background with opacity */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
+
 
 
 
@@ -112,21 +114,21 @@ h3 {
     width: 100px; /* Uniform thumbnail size */
     height: 100px;
     object-fit: cover;
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
-    border-radius: 3px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
+    border-radius: 7px;
     margin-left: 25px;
 }
 
 /* Discussion content container */
 .discussion-content {
     flex: 1;
-    color: #D3D3D3;
+    color: #DDDDDD;
 }
 
 /* Metadata: comments count & date */
 .discussion-meta {
     font-size: 14px;
-    color: #D3D3D3;
+    color: #DDDDDD;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -145,22 +147,24 @@ h3 {
 /* Comments Section */
 .comments-section {
     width: 750px;
-    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
     padding: 20px 20px 20px 20px;
-    border: 2px solid #D3D3D3;
-    border-radius: 3px;
+    border: 3px solid #DDDDDD;
+    backdrop-filter: blur(1px); /* Apply a slight blur effect */
+    border-radius: 0px 0px 7px 7px;
 }
 
     .comments-section h3 {
         text-align: center;
         font-weight: 200;
         font-size: 45px;
-        -webkit-text-stroke: 1px black;
+        -webkit-text-stroke: 1px #1F1F1F;
     }
 
 .comment-username {
     font-family: "Special Elite", serif;
     margin-left: 20px;
+    color: #A67C00;
 }
 
 .comments-list {
@@ -172,14 +176,14 @@ h3 {
     padding: 20px;
     margin-bottom: 20px;
     color: #D3D3D3;
-    border: 1px solid #C0C0C0;
-    border-radius: 3px;
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
+    border: 2px solid #DDDDDD;
+    border-radius: 7px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
 }
 
 .comment-date {
     font-size: 12px;
-    color: #D3D3D3;
+    color: #DDDDDD;
     display: flex;
     justify-content: flex-end;
 }
@@ -191,9 +195,9 @@ h3 {
     margin: 0px auto 35px auto; /* Centers horizontally */
     padding: 10px;
     background: #007bff; /* Standard Bootstrap blue */
-    color: #D3D3D3;
+    color: #DDDDDD;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 7px;
     font-weight: 600;
     text-align: center;
 }
@@ -254,12 +258,13 @@ color: #dc3545;
 .get-discussion-post {
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
     padding: 22.5px 50px 0px 50px;
     transition: all 0.3s ease;
     width: 900px;
-    border: 2px solid #D3D3D3;
-    border-radius: 3px;
+    border: 3px solid #DDDDDD;
+    border-radius: 7px;
+    backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
 
 .get-discussion-content p {
@@ -270,21 +275,21 @@ color: #dc3545;
     display: block; /* Ensures the paragraph behaves like a block element */
     background-color: black;
     padding: 30px 30px 30px 30px;
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
-    border-radius: 3px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
+    border-radius: 7px;
 }
 
 .get-discussion-content h3 {
     text-align: center;
     font-weight: 200;
     font-size: 45px;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 1px #1F1F1F;
 }
 
 /* Title styling */
 .get-discussion-content {
     font-size: 14px;
-    color: #D3D3D3;
+    color: #DDDDDD;
 }
 
 .thumbnail2 {
@@ -294,9 +299,9 @@ color: #dc3545;
     margin-right: 20px;
     margin-left: 10px;
     margin-bottom: 20px;
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
-    border-radius: 3px;
+    border-radius: 7px;
 }
 
 .date {
@@ -306,14 +311,14 @@ color: #dc3545;
 
 .comment-item p, .no-comments {
     background-color: black;
-    border-radius: 3px;
+    border-radius: 7px;
     padding: 20px 30px;
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     max-width: 600px; /* Limits width for a column-like effect */
     margin: 20px auto; /* Centers the text block */
     text-align: justify; /* Aligns text like in newspapers */
     line-height: 1.6; /* Improves readability */
-    color: #D3D3D3;
+    color: #DDDDDD;
 }
 
 .comment-date {
@@ -328,11 +333,12 @@ color: #dc3545;
     border: 2px solid #D3D3D3;
     border-collapse: separate; /* Ensures border-radius works */
     border-spacing: 0; /* Prevents gaps between borders */
-    border-radius: 5px; /* Apply rounded corners */
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #D3D3D3;
+    border-radius: 7px; /* Apply rounded corners */
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #DDDDDD;
     text-align: center;
     margin: 20px auto;
+    backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
 
     .discussionTable th:first-child {
@@ -352,16 +358,17 @@ color: #dc3545;
     }
 
 
-.discussionTable th,
-.discussionTable td {
-    padding: 20px; /* Adjusted for better spacing */
-    word-wrap: break-word; /* Prevents text overflow */
-    white-space: normal; /* Ensures text wraps properly */
-    min-width: 260px; /* Ensures columns are not too narrow */
-}
+    .discussionTable th,
+    .discussionTable td {
+        padding: 20px; /* Adjusted for better spacing */
+        word-wrap: break-word; /* Prevents text overflow */
+        white-space: normal; /* Ensures text wraps properly */
+        min-width: 260px; /* Ensures columns are not too narrow */
+        color: #DDDDDD;
+    }
 
 th {
-    border-bottom: 2px solid #D3D3D3;
+    border-bottom: 3px solid #DDDDDD;
     font-family: "Special Elite", serif;
     background-color: black;
 }
@@ -377,7 +384,7 @@ td > img {
 }
 
 .indexImg {
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
 }
 
 .column-content {
@@ -387,8 +394,8 @@ td > img {
 
 .discussionTable tr:hover {
     background-color: black; /* Slightly lighter shade on hover */
-    border-top: 1px solid #D3D3D3;
-    border-bottom: 1px solid #D3D3D3;
+    border-top: 2px solid #DDDDDD;
+    border-bottom: 2px solid #DDDDDD;
 }
 
 td {
@@ -407,29 +414,30 @@ td {
 /* Discussions/Create */
 
 form {
-    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
-    border: 2px solid #D3D3D3;
-    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
+    border: 2px solid #DDDDDD;
+    border-radius: 7px;
     padding: 50px 70px; /* Reduced padding to make the form smaller */
     width: 100%; /* Adjust the width to 70% of its parent container */
     max-width: 750px; /* Prevents the form from getting too wide */
     margin: 10px auto 0 auto; /* Centers the form and moves it 10px down */
+    backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
 
 label {
-    color: #D3D3D3;
+    color: #DDDDDD;
     font-family: "Special Elite", serif;
     font-size: 20px;
-    margin-bottom: 3px;
+    -webkit-text-stroke: 0.25px #1F1F1F;
 }
 
 .custom-input {
     background-color: black;
-    color: #D3D3D3;
+    color: #DDDDDD;
     border: 1px solid #333;
     padding: 10px;
-    border-radius: 3px;
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 25px, rgba(255, 255, 255, 0.05) 0px 0px 10px;
+    border-radius: 7px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
 }
 
 /* Discussions/Create */
@@ -440,8 +448,9 @@ input[type="file"] {
     border: 1px solid #333;
     padding: 10px; /* Adjust padding */
     cursor: pointer; /* Change cursor on hover */
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 7px; /* Rounded corners */
 }
 
-/* Comments/Create*/
-
+form input {
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
+}
