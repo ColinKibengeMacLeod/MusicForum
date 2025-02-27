@@ -7,32 +7,23 @@
 <h1>DISCUSSION DETAILS</h1>
 
 <div class="dl-container">
-    <!-- Add this container -->
     <dl class="row">
-        <dt class="">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class="">
-            @Html.DisplayFor(model => model.Title)
+        <dt>@Html.DisplayNameFor(model => model.Title)</dt>
+        <dd>@Html.DisplayFor(model => model.Title)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Content)</dt>
+        <dd>@Html.Raw(System.Net.WebUtility.HtmlDecode(Model.Content))</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.ImageFilename)</dt>
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.ImageFilename))
+            {
+                <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
+            }
         </dd>
-        <dt class="">
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-        <dd class="">
-            @Html.Raw(System.Net.WebUtility.HtmlDecode(Model.Content))
-        </dd>
-        <dt class="">
-            @Html.DisplayNameFor(model => model.ImageFilename)
-        </dt>
-        <dd class="">
-            <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
-        </dd>
-        <dt class="">
-            @Html.DisplayNameFor(model => model.CreateDate)
-        </dt>
-        <dd class="">
-            @Html.DisplayFor(model => model.CreateDate)
-        </dd>
+
+        <dt>@Html.DisplayNameFor(model => model.CreateDate)</dt>
+        <dd>@Html.DisplayFor(model => model.CreateDate)</dd>
     </dl>
 </div>
 

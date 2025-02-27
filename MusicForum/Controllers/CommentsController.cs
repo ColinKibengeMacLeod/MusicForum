@@ -50,7 +50,7 @@ namespace MusicForum.Controllers
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
                 //Redirect to Discussions/Edit/id
-                return RedirectToAction("Details", "Discussions", new { id = comment.DiscussionId });
+                return RedirectToAction("GetDiscussion", "Home", new { id = comment.DiscussionId });
             }
             ViewData["DiscussionId"] = new SelectList(_context.Discussion, "DiscussionId", "DiscussionId", comment.DiscussionId);
             return View(comment);

@@ -12,12 +12,8 @@
         {
             <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
         }
-        else
-        {
-           
-        }
 
-        <!-- Add a class to the .get-discussion-content to center it if the image is not available -->
+        <!-- Content gets centered if no image is available -->
         <div class="get-discussion-content @(string.IsNullOrEmpty(Model.ImageFilename) ? "centered-content" : "")">
             <h3>@Model.Title</h3>
             <p>

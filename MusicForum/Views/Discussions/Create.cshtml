@@ -21,7 +21,7 @@
 
     <div class="mb-4">
         <label asp-for="Content" class="control-label">Discussion</label>
-        <textarea asp-for="Content" class="form-control custom-input" id="myTextarea"></textarea>
+<textarea asp-for="Content" class="form-control custom-input" id="myTextarea" rows="5"></textarea>
         <span asp-validation-for="Content" class="text-danger"></span>
     </div>
 
@@ -48,18 +48,6 @@
     }
 }
 
-<!-- Include TinyMCE script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/tinymce.min.js"></script>
+@* <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/tinymce.min.js"></script> *@
 
 <!-- Initialize TinyMCE editor -->
-<script>
-        tinymce.init({
-        selector: '#myTextarea',
-        menubar: false,
-        toolbar: 'bold italic underline | alignleft aligncenter alignright | bullist numlist | link',
-        plugins: 'lists link',
-        height: 300,
-        entity_encoding: "raw",  // Prevents unwanted HTML encoding
-        forced_root_block: 'p',  // Ensures paragraphs are wrapped properly
-    });
-</script>
