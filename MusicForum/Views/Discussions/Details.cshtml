@@ -6,35 +6,36 @@
 
 <h1>DISCUSSION DETAILS</h1>
 
-<div>
+<div class="dl-container">
+    <!-- Add this container -->
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="">
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="">
             @Html.DisplayNameFor(model => model.Content)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="">
             @Html.Raw(System.Net.WebUtility.HtmlDecode(Model.Content))
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="">
             @Html.DisplayNameFor(model => model.ImageFilename)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="">
             <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="">
             @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="">
             @Html.DisplayFor(model => model.CreateDate)
         </dd>
     </dl>
 </div>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.DiscussionId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="pe-2" asp-action="Index">Back to List</a>
 </div>
