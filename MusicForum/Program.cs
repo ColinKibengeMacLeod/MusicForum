@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MusicForum.Data;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MusicForumContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MusicForumContext") ?? throw new InvalidOperationException("Connection string 'MusicForumContext' not found.")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<MusicForumContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
