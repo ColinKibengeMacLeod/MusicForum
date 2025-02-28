@@ -14,7 +14,7 @@
             <input type="hidden" value="@ViewBag.DiscussionId" name="DiscussionId" />
             <div class="mb-3">
                 <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
+                <textarea asp-for="Content" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="mb-3">
@@ -23,14 +23,14 @@
                 <span asp-validation-for="CreateDate" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="pe-2" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a href="@Url.Action("GetDiscussion", "Home", new { id = ViewBag.DiscussionId })" class="discussion-link">Back</a>
+    <a href="@Url.Action("GetDiscussion", "Home", new { id = ViewBag.DiscussionId })" class="discussion-link pe-2">Back</a>
 
 </div>
 

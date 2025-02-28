@@ -12,30 +12,39 @@
 <table class="discussionTable">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.Content)</th>
-            <th>@Html.DisplayNameFor(model => model.ImageFilename)</th>
-            <th>@Html.DisplayNameFor(model => model.CreateDate)</th>
-            <th>Actions</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageFilename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                <td class="column-content">@Html.DisplayFor(modelItem => item.Content)</td>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.ImageFilename))
-                    {
-                        <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)"
-                             alt="Image Thumbnail" width="150" height="150"
-                             style="object-fit: cover; border-radius: 5px;">
-                    }
-                    @* If no image exists, the <td> remains empty *@
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+                <td class="column-content">
+                    @Html.DisplayFor(modelItem => item.Content)
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.CreateDate)</td>
                 <td>
+                    <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)" alt="Image Thumbnail" width="150" height="150" style="object-fit: cover; border-radius: 5px;">
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
                     <a asp-action="Edit" asp-route-id="@item.DiscussionId" class="action-link edit">
                         <i class="fas fa-edit"></i>
                     </a>
@@ -45,8 +54,8 @@
                     <a asp-action="Delete" asp-route-id="@item.DiscussionId" class="action-link delete">
                         <i class="fas fa-trash-alt"></i>
                     </a>
-                </td>
-            </tr>
-        }
+            </td>
+        </tr>
+}
     </tbody>
 </table>

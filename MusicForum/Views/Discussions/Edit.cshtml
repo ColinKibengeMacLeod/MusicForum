@@ -1,47 +1,42 @@
 ﻿@model MusicForum.Models.Discussion
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Discussion";
 }
 
-<h1>EDIT DISCUSSION</h1>
+<h1>Edit Discussion</h1>
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <form asp-action="Edit" class="mb-5">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="DiscussionId" />
-            <div class="mb-3">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="ImageFilename" class="control-label"></label>
-                <input type="file" asp-for="ImageFilename" class="form-control" />
-                <span asp-validation-for="ImageFilename" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="CreateDate" class="control-label"></label>
-                <input asp-for="CreateDate" class="form-control" />
-                <span asp-validation-for="CreateDate" class="text-danger"></span>
-            </div>
-            <div>
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Edit" asp-route-id="@Model.DiscussionId" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input asp-for="Title" class="form-control" />
     </div>
-</div>
+
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label">Content</label>
+        <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+    </div>
+
+    <!-- Current Image Section -->
+    <div class="mb-3">
+        <label class="form-label">Current Image</label>
+        @if (!string.IsNullOrEmpty(Model.ImageFilename))
+        {
+            <div class="d-flex align-items-center">
+                <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="Current Image"
+                     style="width:60px; height: 60px; object-fit: cover; border-radius: 5px; margin-right: 10px; box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 35px, rgba(255, 255, 255, 0.1) 0px 0px 15px;" />
+                <input type="text" class="form-control" value="@Model.ImageFilename" readonly />
+            </div>
+        }
+        else
+        {
+            <p>No image uploaded</p>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary pe-2">Save</button>
+</form>
 
 <div>
     <a class="pe-2" asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
