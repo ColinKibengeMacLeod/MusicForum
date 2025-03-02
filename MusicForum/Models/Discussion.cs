@@ -9,6 +9,7 @@ namespace MusicForum.Models
         public int DiscussionId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Content { get; set; } = string.Empty;
+
         [Display(Name = "Image")]
         public string? ImageFilename { get; set; }
 

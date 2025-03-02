@@ -7,6 +7,9 @@
 <h1>Edit Discussion</h1>
 
 <form asp-action="Edit" asp-route-id="@Model.DiscussionId" enctype="multipart/form-data">
+    <input type="hidden" asp-for="DiscussionId" />
+    <input type="hidden" asp-for="ImageFilename" />
+    <input type="hidden" asp-for="CreateDate" />
     <div class="mb-3">
         <label asp-for="Title" class="form-label">Title</label>
         <input asp-for="Title" class="form-control" />

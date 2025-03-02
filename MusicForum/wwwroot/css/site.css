@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
+.footer-link {
+    color: hotpink; /* Bootstrap blue */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+    transition: color 0.3s ease-in-out;
+}
+
+    .footer-link:hover {
+        color: yellow; /* Change color on hover */
+    }
+
+
 body {
     background-image: url('../photos/brian-patrick-tagalog-_8hgfbxwd0a-unsplash.jpg');
     background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */

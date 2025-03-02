@@ -39,11 +39,16 @@
                     @Html.DisplayFor(modelItem => item.Content)
                 </td>
                 <td>
-                    <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)" alt="Image Thumbnail" width="150" height="150" style="object-fit: cover; border-radius: 5px;">
+                    @if (!string.IsNullOrEmpty(item.ImageFilename))
+                    {
+                        <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)"
+                             alt="Image Thumbnail" width="150" height="150"
+                             style="object-fit: cover; border-radius: 5px;">
+                    }
                 </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
+                <td>
+                    @item.CreateDate.ToString("MMM dd, yyyy @ h:mm tt")
+                </td>
             <td>
                     <a asp-action="Edit" asp-route-id="@item.DiscussionId" class="action-link edit">
                         <i class="fas fa-edit"></i>
