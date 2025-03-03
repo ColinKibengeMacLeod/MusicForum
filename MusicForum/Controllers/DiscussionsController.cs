@@ -56,8 +56,9 @@ namespace MusicForum.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DiscussionId,Title,Content,ImageFile,CreateDate")] Discussion discussion)
+        public async Task<IActionResult> Create([Bind("DiscussionId,Title,Content,ImageFile")] Discussion discussion)
         {
+            discussion.CreateDate = DateTime.Now;
             // Decode Content to prevent double encoding
             discussion.Content = System.Net.WebUtility.HtmlDecode(discussion.Content);
 

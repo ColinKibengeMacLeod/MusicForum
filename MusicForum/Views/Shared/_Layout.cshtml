@@ -22,9 +22,10 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="
         font-weight: bold;
         text-shadow:
-            -2px -2px 0 rgba(221, 221, 221, 0.7),  /* Top-left faint */
-            2px  2px 0 rgba(221, 221, 221, 0.7),  /* Bottom-right faint */
-            -3px  3px 0 rgba(221, 221, 221, 0.5);  /* Slight offset variation */
+    -2px -2px 0 rgba(221, 221, 221, 0.7),  /* Top-left faint */
+     2px  2px 0 rgba(221, 221, 221, 0.7),  /* Bottom-right faint */
+    -3px  3px 0 rgba(221, 221, 221, 0.7),  /* Slight offset variation */
+     2px -2px 0 rgba(221, 221, 221, 0.7);  /* Top-right shadow */
 ">
                     ChordCollective
                 </a>
@@ -38,10 +39,8 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color: #D3D3D3;">Home</a>
 
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Discussions" asp-action="Index" style="color: #D3D3D3;">My Discussions</a>
-                        </li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>

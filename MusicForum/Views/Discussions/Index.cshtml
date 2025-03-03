@@ -36,14 +36,14 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
                 <td class="column-content">
-                    @Html.DisplayFor(modelItem => item.Content)
+                    @(item.Content.Length > 100 ? item.Content.Substring(0, 100) + "..." : item.Content)
                 </td>
                 <td>
                     @if (!string.IsNullOrEmpty(item.ImageFilename))
                     {
                         <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)"
-                             alt="Image Thumbnail" width="150" height="150"
-                             style="object-fit: cover; border-radius: 5px;">
+                             alt="Image Thumbnail"
+                             style="object-fit: fill;">
                     }
                 </td>
                 <td>

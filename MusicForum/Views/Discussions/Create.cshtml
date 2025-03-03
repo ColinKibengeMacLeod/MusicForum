@@ -10,7 +10,7 @@
     <a class="pe-2" href="@Url.Action("Index", "Discussions")">Back to List</a>
 </div>
 
-<form asp-action="Create" enctype="multipart/form-data">
+<form class="crudForm" asp-action="Create" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="mb-4">
@@ -31,11 +31,11 @@
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
 
-    <div class="mb-4">
-        <label asp-for="CreateDate" class="control-label">Date Created</label>
-        <input asp-for="CreateDate" class="form-control custom-input" />
-        <span asp-validation-for="CreateDate" class="text-danger"></span>
-    </div>
+    @* <div class="mb-4"> *@
+    @*     <label asp-for="CreateDate" class="control-label">Date Created</label> *@
+    @*     <input asp-for="CreateDate" class="form-control custom-input" /> *@
+    @*     <span asp-validation-for="CreateDate" class="text-danger"></span> *@
+    @* </div> *@
 
     <div class="mb-3">
         <input type="submit" value="Create" class="pe-2" />
