@@ -54,7 +54,7 @@ h3 {
     font-style: normal;
     padding: 10px 0px 20px 0px;
     -webkit-text-stroke: 1px #1F1F1F;
-    font-size: 43px;
+    font-size: 35px;
     width: 500px;
     text-align: center; /* Centers the text */
     margin: 0 auto; /* Centers the element itself */
@@ -167,7 +167,7 @@ h3 {
     .comments-section h3 {
         text-align: center;
         font-weight: 200;
-        font-size: 40px;
+        font-size: 35px;
         -webkit-text-stroke: 1px #1F1F1F;
     }
 
@@ -292,7 +292,7 @@ color: #dc3545;
 .get-discussion-content h3 {
     text-align: center;
     font-weight: 200;
-    font-size: 45px;
+    font-size: 35px;
     -webkit-text-stroke: 1px #1F1F1F;
 }
 

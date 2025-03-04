@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,19 +12,25 @@ using MusicForum.Models;
 
 namespace MusicForum.Controllers
 {
+    //AC for logged in users
+    [Authorize]
     public class DiscussionsController : Controller
     {
         private readonly MusicForumContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public DiscussionsController(MusicForumContext context)
+        public DiscussionsController(MusicForumContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Discussions
         public async Task<IActionResult> Index()
         {
-            var discussions = await _context.Discussion.ToListAsync();
+            var userId = _userManager.GetUserId(User);
+
+            var discussions = await _context.Discussion.Where(m => m.ApplicationUserId == userId).ToListAsync();
 
             return View(discussions);
         }
@@ -61,6 +69,10 @@ namespace MusicForum.Controllers
             discussion.CreateDate = DateTime.Now;
             // Decode Content to prevent double encoding
             discussion.Content = System.Net.WebUtility.HtmlDecode(discussion.Content);
+
+            //Set user ID for user logged in
+            var userId = _userManager.GetUserId(User);
+            discussion.ApplicationUserId = userId;
 
             if (discussion.ImageFile != null && discussion.ImageFile.Length > 0)
             {
@@ -102,8 +114,10 @@ namespace MusicForum.Controllers
 
             }
 
+            var userId = _userManager.GetUserId(User);
+
             //Get Dicussion by ID and include list of Comments
-            var discussion = await _context.Discussion.Include(m => m.Comments).FirstOrDefaultAsync(m => m.DiscussionId == id);
+            var discussion = await _context.Discussion.Include(m => m.Comments).Where(m => m.ApplicationUserId == userId).FirstOrDefaultAsync(m => m.DiscussionId == id);
 
             if (discussion == null)
             {
@@ -120,7 +134,7 @@ namespace MusicForum.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DiscussionId,Title,Content,ImageFilename,CreateDate")] Discussion discussion)
+        public async Task<IActionResult> Edit(int id, [Bind("DiscussionId,Title,Content,ImageFilename,CreateDate,ApplicationUserId")] Discussion discussion)
         {
             if (id != discussion.DiscussionId)
             {
@@ -160,7 +174,9 @@ namespace MusicForum.Controllers
 
             }
 
-            var discussion = await _context.Discussion.FirstOrDefaultAsync(m => m.DiscussionId == id);
+            var userId = _userManager.GetUserId(User);
+
+            var discussion = await _context.Discussion.Where(m => m.ApplicationUserId == userId).FirstOrDefaultAsync(m => m.DiscussionId == id);
 
             if (discussion == null)
             {
@@ -175,8 +191,15 @@ namespace MusicForum.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var discussion = await _context.Discussion.FindAsync(id);
-            if (discussion != null)
+            var userId = _userManager.GetUserId(User);
+
+            var discussion = await _context.Discussion.Where(m => m.ApplicationUserId == userId).FirstOrDefaultAsync(m => m.DiscussionId == id);
+
+            if (discussion == null)
+            {
+                return NotFound();
+            }
+            else
             {
                 _context.Discussion.Remove(discussion);
             }

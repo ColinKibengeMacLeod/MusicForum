@@ -8,7 +8,7 @@ using MusicForum.Models;
 
 namespace MusicForum.Data
 {
-    public class MusicForumContext : IdentityDbContext //Changed DbContext to IdentityDbContext
+    public class MusicForumContext : IdentityDbContext<ApplicationUser> //Changed DbContext to IdentityDbContext
     {
         public MusicForumContext (DbContextOptions<MusicForumContext> options)
             : base(options)

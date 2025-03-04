@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MusicForum.Data;
 
 namespace MusicForum.Models
 {
@@ -23,5 +24,11 @@ namespace MusicForum.Models
 
         // Navigation property
         public List<Comment>? Comments { get; set; } = new List<Comment>();
+
+        //Foreign Key (AspNetUsers table)
+        public string ApplicationUserId { get; set; } = string.Empty;
+
+        //Navigation property
+        public ApplicationUser? ApplicationUser { get; set; } //nullable!!
     }
 }
