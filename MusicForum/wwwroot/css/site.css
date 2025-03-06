@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 .footer-link {
   color: #DDDDDD;
@@ -65,7 +66,7 @@ h3 {
 .discussion-post {
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.2); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
     padding: 35px 0px 0px 25px;
     margin: 5px 0px 5px 0px;
     border: 3px solid #DDDDDD;
@@ -94,7 +95,7 @@ h3 {
 /* On hover: slightly increase size, dark background, and blur effect */
 .discussion-post:hover {
     transform: scale(1.05);
-    background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
+    background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.7); /* Add a subtle shadow */
     backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
@@ -284,10 +285,22 @@ color: #dc3545;
     margin: 0px 20px 50px 60px; /* Center the paragraph horizontally */
     display: block; /* Ensures the paragraph behaves like a block element */
     background-color: black;
-    padding: 30px 30px 30px 30px;
+    padding: 40px 40px 20px 40px;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     border-radius: 7px;
 }
+
+    .get-discussion-content p::first-letter {
+        font-size: 2em; /* Large size for drop cap */
+        font-weight: bold;
+        font-family: "Special Elite", serif; /* Matching h1 font */
+        color: #DDDDDD; /* Dark golden color */
+        float: left;
+        margin-right: 2px; /* Space between drop cap and text */
+        line-height: 0.8; /* Ensures proper alignment */
+        -webkit-text-stroke: 2.5px #1F1F1F;
+        
+    }
 
 .get-discussion-content h3 {
     text-align: center;
@@ -317,6 +330,7 @@ color: #dc3545;
 .date {
     display: flex;
     justify-content: flex-end;
+    margin: 20px auto;
 }
 
 .comment-item p, .no-comments {
@@ -441,6 +455,14 @@ td {
     backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
 
+    .crudForm textarea, .crudForm input {
+        box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
+        background-color: black;
+        border: 1px solid #333;
+        border-radius: 7px;
+        color: #DDDDDD;
+    }
+
 label {
     color: #DDDDDD;
     font-family: "Special Elite", serif;
@@ -455,6 +477,28 @@ label {
     padding: 10px;
     border-radius: 7px;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
+}
+
+.custom-input:focus {
+    background-color: black;
+    color: #DDDDDD;
+    border: 1px solid #333;
+}
+
+/* Custom Scrollbar for the textarea */
+.custom-input::-webkit-scrollbar {
+    width: 10px; /* Adjust width to control pill shape */
+}
+
+.custom-input::-webkit-scrollbar-track {
+    background: black; /* Black background */
+    border-radius: 10px; /* Rounded track */
+}
+
+/* For Firefox */
+.custom-input {
+    scrollbar-color: #888 black;
+    scrollbar-width: thin;
 }
 
 /* Discussions/Create */
@@ -505,6 +549,11 @@ dd {
     background: rgba(0, 0, 0, 0.4);
     padding: 20px;
 
+}
+
+dd.noBorder {
+    border: none;
+    box-shadow: none;
 }
 
 

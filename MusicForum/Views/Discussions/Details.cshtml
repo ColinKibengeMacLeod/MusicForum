@@ -15,7 +15,7 @@
         <dd>@Html.Raw(System.Net.WebUtility.HtmlDecode(Model.Content))</dd>
 
         <dt>@Html.DisplayNameFor(model => model.ImageFilename)</dt>
-        <dd>
+        <dd class="noBorder">
             @if (!string.IsNullOrEmpty(Model.ImageFilename))
             {
                 <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
