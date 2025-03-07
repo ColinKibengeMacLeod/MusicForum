@@ -8,7 +8,20 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-            <a id="manage" class="nav-link" style="color: #DDDDDD;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello, @UserManager.GetUserName(User)!</a>
+            <a id="manage" class="nav-link" style="color: #DDDDDD;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                Hey, @{
+                    var user = await UserManager.GetUserAsync(User);
+                }
+
+                @if (user != null)
+                {
+                    <span>@user.Name</span>
+                }
+                else
+                {
+                    <span>Guest</span>
+                }
+            </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" asp-area="" asp-controller="Discussions" asp-action="Index" style="color: #D3D3D3;">My Discussions</a>

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 .footer-link {
   color: #DDDDDD;
@@ -176,6 +175,16 @@ h3 {
     font-family: "Special Elite", serif;
     margin-left: 20px;
     color: #A67C00;
+    font-weight: bold;
+}
+
+.indicator {
+    color: #DDDDDD;
+    font-size:16px;
+}
+
+.comment-username:hover {
+    color:#DDDDDD;
 }
 
 .comments-list {
@@ -190,6 +199,10 @@ h3 {
     border: 2px solid #DDDDDD;
     border-radius: 7px;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
+}
+
+.comment-item p {
+    width: 600px;
 }
 
 .comment-date {
@@ -330,8 +343,14 @@ color: #dc3545;
 .date {
     display: flex;
     justify-content: flex-end;
+}
+
+.discussionDate {
+    display: flex;
+    justify-content: flex-end;
     margin: 20px auto;
 }
+
 
 .comment-item p, .no-comments {
     background-color: black;

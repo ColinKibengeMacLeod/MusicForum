@@ -19,13 +19,15 @@
     <tbody>
         <tr>
             <td>@Html.DisplayFor(model => model.Title)</td>
-            <td>@Model.Content</td>
+            <td class="column-content">
+                @(Model.Content.Length > 100 ? Model.Content.Substring(0, 100) + "..." : Model.Content)
+            </td>
             <td>
                 @if (!string.IsNullOrEmpty(Model.ImageFilename))
                 {
                     <img class="indexImg" src="@Url.Content("~/photos/" + Model.ImageFilename)"
-                            alt="Image Thumbnail"
-                            style="object-fit: fill;">
+                         alt="Image Thumbnail"
+                         style="object-fit: fill;">
                 }
             </td>
             <td>@Model.CreateDate.ToString("MMM dd, yyyy @ h:mm tt")</td>
