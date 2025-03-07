@@ -43,15 +43,20 @@ namespace MusicForum.Controllers
                 return NotFound();
             }
 
+            var userId = _userManager.GetUserId(User);  // Get the ID of the logged-in user
+
+            // Find the discussion by ID and also ensure it belongs to the current user
             var discussion = await _context.Discussion
-                .FirstOrDefaultAsync(m => m.DiscussionId == id);
+                .FirstOrDefaultAsync(m => m.DiscussionId == id && m.ApplicationUserId == userId);
+
             if (discussion == null)
             {
-                return NotFound();
+                return Forbid();  // If the discussion doesn't exist or doesn't belong to the logged-in user, deny access
             }
 
-            return View(discussion);
+            return View(discussion);  // If everything is okay, return the discussion to the view
         }
+
 
         // GET: Discussions/Create
         public IActionResult Create()
@@ -70,9 +75,9 @@ namespace MusicForum.Controllers
             // Decode Content to prevent double encoding
             discussion.Content = System.Net.WebUtility.HtmlDecode(discussion.Content);
 
-            //Set user ID for user logged in
+            // Set user ID for the logged-in user
             var userId = _userManager.GetUserId(User);
-            discussion.ApplicationUserId = userId;
+            discussion.ApplicationUserId = userId;  // Explicitly set it here
 
             if (discussion.ImageFile != null && discussion.ImageFile.Length > 0)
             {
@@ -104,42 +109,46 @@ namespace MusicForum.Controllers
 
 
 
+
         // GET: Discussions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
-
                 return NotFound();
-
             }
 
-            var userId = _userManager.GetUserId(User);
+            var userId = _userManager.GetUserId(User);  // Get the ID of the logged-in user
 
-            //Get Dicussion by ID and include list of Comments
-            var discussion = await _context.Discussion.Include(m => m.Comments).Where(m => m.ApplicationUserId == userId).FirstOrDefaultAsync(m => m.DiscussionId == id);
+            // Find the discussion by ID and ensure it belongs to the logged-in user
+            var discussion = await _context.Discussion
+                .Include(m => m.Comments)
+                .FirstOrDefaultAsync(m => m.DiscussionId == id && m.ApplicationUserId == userId);
 
             if (discussion == null)
             {
-
-                return NotFound();
-
+                return Forbid();  // If the discussion doesn't exist or doesn't belong to the logged-in user, deny access
             }
 
-            return View(discussion);
+            return View(discussion);  // If everything is okay, return the discussion to the view
         }
+
 
         // POST: Discussions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DiscussionId,Title,Content,ImageFilename,CreateDate,ApplicationUserId")] Discussion discussion)
+        public async Task<IActionResult> Edit(int id, [Bind("DiscussionId,Title,Content,ImageFilename,CreateDate")] Discussion discussion)
         {
             if (id != discussion.DiscussionId)
             {
                 return NotFound();
             }
+
+            // Explicitly set ApplicationUserId to prevent tampering
+            var userId = _userManager.GetUserId(User);
+            discussion.ApplicationUserId = userId;
 
             if (ModelState.IsValid)
             {
@@ -164,27 +173,29 @@ namespace MusicForum.Controllers
             return View(discussion);
         }
 
+
         // GET: Discussions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
-
                 return NotFound();
-
             }
 
-            var userId = _userManager.GetUserId(User);
+            var userId = _userManager.GetUserId(User);  // Get the ID of the logged-in user
 
-            var discussion = await _context.Discussion.Where(m => m.ApplicationUserId == userId).FirstOrDefaultAsync(m => m.DiscussionId == id);
+            // Find the discussion by ID and ensure it belongs to the logged-in user
+            var discussion = await _context.Discussion
+                .FirstOrDefaultAsync(m => m.DiscussionId == id && m.ApplicationUserId == userId);
 
             if (discussion == null)
             {
-                return NotFound();
+                return Forbid();  // If the discussion doesn't exist or doesn't belong to the logged-in user, deny access
             }
 
-            return View(discussion);
+            return View(discussion);  // If everything is okay, return the discussion to the view
         }
+
 
         // POST: Discussions/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -193,20 +204,26 @@ namespace MusicForum.Controllers
         {
             var userId = _userManager.GetUserId(User);
 
-            var discussion = await _context.Discussion.Where(m => m.ApplicationUserId == userId).FirstOrDefaultAsync(m => m.DiscussionId == id);
+            var discussion = await _context.Discussion
+                .FirstOrDefaultAsync(m => m.DiscussionId == id);
 
             if (discussion == null)
             {
                 return NotFound();
             }
-            else
+
+            // Authorization check: Ensure the user owns the discussion
+            if (discussion.ApplicationUserId != userId)
             {
-                _context.Discussion.Remove(discussion);
+                return Forbid(); // Prevent unauthorized deletion
             }
 
+            _context.Discussion.Remove(discussion);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool DiscussionExists(int id)
         {

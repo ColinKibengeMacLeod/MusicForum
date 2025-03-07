@@ -1,4 +1,6 @@
-﻿namespace MusicForum.Models
+﻿using MusicForum.Data;
+
+namespace MusicForum.Models
 {
     public class Comment
     {
@@ -11,5 +13,11 @@
 
         // Navigation property
         public Discussion? Discussion { get; set; }
+
+        //Foreign Key (AspNetUsers table)
+        public string ApplicationUserId { get; set; } = string.Empty;
+
+        //Navigation property
+        public ApplicationUser? ApplicationUser { get; set; } //nullable!!
     }
 }

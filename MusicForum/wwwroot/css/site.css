@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
+
+
 .footer-link {
   color: #DDDDDD;
   text-decoration: none;
@@ -66,10 +68,8 @@ h3 {
     display: flex;
     align-items: center;
     background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
-    padding: 35px 0px 0px 25px;
     margin: 5px 0px 5px 0px;
     border: 3px solid #DDDDDD;
-    margin-bottom: 15px;
     width: 800px;
     transition: transform 0.5s ease, background 0.5s ease; /* Smooth transition */
     border-radius: 7px;
@@ -121,12 +121,12 @@ h3 {
 
 /* Thumbnail image */
 .thumbnail {
-    width: 150px; /* Uniform thumbnail size */
-    height: 150px;
+    width: 100px; /* Uniform thumbnail size */
+    height: 100px;
     object-fit:fill;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     border-radius: 7px;
-    margin-left: 25px;
+    margin: 60px 30px 0px 20px;
 }
 
 /* Discussion content container */
@@ -141,10 +141,8 @@ h3 {
     color: #DDDDDD;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding-right: 50px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    width: 90%;
+    margin: 20px 0px;
 }
 
 /* Comments count styling */
@@ -172,10 +170,12 @@ h3 {
     }
 
 .comment-username {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0px 0px 30px;
     font-family: "Special Elite", serif;
-    margin-left: 20px;
-    color: #A67C00;
     font-weight: bold;
+    color: #B8860B;
 }
 
 .indicator {

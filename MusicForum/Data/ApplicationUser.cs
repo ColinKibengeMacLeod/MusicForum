@@ -8,13 +8,8 @@ namespace MusicForum.Data
         public string Name { get; set; } = string.Empty;
 
         [PersonalData]
-        public string Bio { get; set; } = string.Empty;
-
-        [PersonalData]
         public string Location { get; set; } = string.Empty;
 
-        [PersonalData]
-        public bool IsForHire { get; set; } = false;
     }
 
 }

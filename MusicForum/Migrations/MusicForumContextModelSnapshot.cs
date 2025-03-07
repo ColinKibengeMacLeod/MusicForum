@@ -167,10 +167,6 @@ namespace MusicForum.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Bio")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -180,9 +176,6 @@ namespace MusicForum.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsForHire")
                         .HasColumnType("bit");
 
                     b.Property<string>("Location")
@@ -247,6 +240,10 @@ namespace MusicForum.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
 
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -258,6 +255,8 @@ namespace MusicForum.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("CommentId");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("DiscussionId");
 
@@ -350,11 +349,19 @@ namespace MusicForum.Migrations
 
             modelBuilder.Entity("MusicForum.Models.Comment", b =>
                 {
+                    b.HasOne("MusicForum.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MusicForum.Models.Discussion", "Discussion")
                         .WithMany("Comments")
                         .HasForeignKey("DiscussionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Discussion");
                 });

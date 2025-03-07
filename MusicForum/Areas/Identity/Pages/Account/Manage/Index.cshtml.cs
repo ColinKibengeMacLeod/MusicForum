@@ -88,9 +88,7 @@ namespace MusicForum.Areas.Identity.Pages.Account.Manage
             Input = new InputModel
             {
                 Name = user.Name,
-                Bio = user.Bio,
                 Location = user.Location,
-                IsForHire = user.IsForHire,
             };
         }
 
@@ -136,19 +134,9 @@ namespace MusicForum.Areas.Identity.Pages.Account.Manage
                 user.Name = Input.Name;
             }
 
-            if (Input.Bio != user.Bio)
-            {
-                user.Bio = Input.Bio;
-            }
-
             if (Input.Location != user.Location)
             {
                 user.Location = Input.Location;
-            }
-
-            if (Input.IsForHire != user.IsForHire)
-            {
-                user.IsForHire = Input.IsForHire;
             }
 
             await _userManager.UpdateAsync(user);

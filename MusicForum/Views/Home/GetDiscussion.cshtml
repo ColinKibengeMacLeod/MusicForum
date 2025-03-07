@@ -28,21 +28,21 @@
 
     <div class="comments-section">
         <h3>Join the Conversation</h3>
-        <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">New Comment</a>
 
         @if (Model.Comments != null && Model.Comments.Any())
         {
             <ul class="comments-list">
-                @foreach (var comment in Model.Comments.OrderByDescending(d => d.CreateDate))
+                @foreach (var comment in Model.Comments)
                 {
                     <li class="comment-item">
                         <a id="manage" class="nav-link" style="color: #DDDDDD;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
                             @{
-                                var user = await UserManager.GetUserAsync(User);
+                                // Access the user associated with the comment directly
+                                var commentUser = comment.ApplicationUser;
                             }
-                            @if (user != null)
+                            @if (commentUser != null)
                             {
-                                <span class="comment-username"><span class="indicator">@@</span>@user.Name</span>
+                                <span class="comment-username"><span class="indicator">@@</span>@commentUser.Name</span>
                             }
                         </a>
                         <p>@comment.Content</p>
@@ -55,5 +55,6 @@
         {
             <p class="no-comments">No comments yet...</p>
         }
+        <a asp-controller="Comments" asp-action="Create" asp-route-id="@Model.DiscussionId" class="pe-2">New Comment</a>
     </div>
 </div>
