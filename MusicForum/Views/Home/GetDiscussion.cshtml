@@ -11,16 +11,25 @@
 
 <div class="get-center-container">
     <div class="get-discussion-post">
-        @if (!string.IsNullOrEmpty(Model.ImageFilename))
-        {
-            <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
-        }
+        
 
         <!-- Content gets centered if no image is available -->
         <div class="get-discussion-content @(string.IsNullOrEmpty(Model.ImageFilename) ? "centered-content" : "")">
             <h3>@Model.Title</h3>
-            <p>
-                @Model.Content
+            <p class="news-article">
+                Hi there, <br /><br />
+                @if (!string.IsNullOrEmpty(Model.ImageFilename))
+                {
+                    <img src="@Url.Content("/photos/" + Model.ImageFilename)"
+                         alt="@Model.Title"
+                         class="article-image" />
+                }
+                @if (!string.IsNullOrEmpty(Model.Content))
+                {
+                    <span class="drop-cap">@Model.Content.Substring(0, 1)</span>
+
+                    @Model.Content.Substring(1)
+                }
                 <span class="discussionDate">@Model.CreateDate.ToString("MMM dd, yyyy - h:mm tt")</span>
             </p>
         </div>

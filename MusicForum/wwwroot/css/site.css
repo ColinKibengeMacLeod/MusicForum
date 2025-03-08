@@ -68,7 +68,7 @@ h3 {
     display: flex;
     align-items: center;
     background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
-    margin: 5px 0px 5px 0px;
+    margin: 7px 0px 7px 0px;
     border: 3px solid #DDDDDD;
     width: 800px;
     transition: transform 0.5s ease, background 0.5s ease; /* Smooth transition */
@@ -126,7 +126,7 @@ h3 {
     object-fit:fill;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     border-radius: 7px;
-    margin: 60px 30px 0px 20px;
+    margin: 70px 30px 0px 0px;
 }
 
 /* Discussion content container */
@@ -154,7 +154,7 @@ h3 {
 
 /* Comments Section */
 .comments-section {
-    width: 750px;
+    width: 700px;
     background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
     padding: 20px 20px 20px 20px;
     border: 3px solid #DDDDDD;
@@ -172,7 +172,7 @@ h3 {
 .comment-username {
     display: flex;
     align-items: flex-start;
-    padding: 20px 0px 0px 30px;
+    padding: 30px 0px 0px 30px;
     font-family: "Special Elite", serif;
     font-weight: bold;
     color: #B8860B;
@@ -193,7 +193,6 @@ h3 {
 }
 
 .comment-item {
-    padding: 20px;
     margin-bottom: 20px;
     color: #D3D3D3;
     border: 2px solid #DDDDDD;
@@ -202,7 +201,7 @@ h3 {
 }
 
 .comment-item p {
-    width: 600px;
+    width: 550px;
 }
 
 .comment-date {
@@ -210,6 +209,8 @@ h3 {
     color: #DDDDDD;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 20px;
+    padding-right: 10px;
 }
 
 /* Button Styling */
@@ -283,37 +284,66 @@ color: #dc3545;
     display: flex;
     align-items: center;
     background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
-    padding: 22.5px 50px 0px 50px;
+    padding: 22.5px 50px 80px 50px;
     transition: all 0.3s ease;
-    width: 900px;
+    width: 800px;
     border: 3px solid #DDDDDD;
     border-radius: 7px;
     backdrop-filter: blur(1px); /* Apply a slight blur effect */
 }
 
+.get-discussion-content {
+    margin: 0px auto;
+}
+
 .get-discussion-content p {
     text-align: justify; /* Ensures text is evenly aligned on both left and right */
-    max-width: 375px; /* Adjust to your preference for column width */
+    max-width: 600px; /* Adjust to your preference for column width */
     line-height: 1.7; /* Improves readability */
-    margin: 0px 20px 50px 60px; /* Center the paragraph horizontally */
+    margin: 0px; /* Center the paragraph horizontally */
     display: block; /* Ensures the paragraph behaves like a block element */
     background-color: black;
     padding: 40px 40px 20px 40px;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     border-radius: 7px;
+    font-weight: bold;
+    font-family: "Special Elite", serif; /* Matching h1 font */
+    color: #DDDDDD;
+    font-size: 16px;
 }
 
-    .get-discussion-content p::first-letter {
-        font-size: 2em; /* Large size for drop cap */
-        font-weight: bold;
-        font-family: "Special Elite", serif; /* Matching h1 font */
-        color: #DDDDDD; /* Dark golden color */
-        float: left;
-        margin-right: 2px; /* Space between drop cap and text */
-        line-height: 0.8; /* Ensures proper alignment */
-        -webkit-text-stroke: 2.5px #1F1F1F;
-        
-    }
+.news-article {
+    text-align: justify; /* Ensures proper text alignment like a newspaper */
+    font-family: 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 600px; /* Adjust for your layout */
+}
+
+.article-image {
+    float: left;
+    margin: 10px 20px 0px 0px; /* Spacing: right 15px, bottom 10px */
+    width: 250px; /* Adjust size as needed */
+    height: 250px;
+    border-radius: 7px;
+    box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
+}
+
+.discussionDate {
+    display: block;
+    font-size: 14px;
+    color: #DDDDDD;
+    margin-top: 15px;
+}
+
+
+.drop-cap {
+    font-size: 1.5em;
+    float: left;
+    line-height: 1.1;
+    margin-right: 2px;
+    
+}
 
 .get-discussion-content h3 {
     text-align: center;
@@ -329,8 +359,8 @@ color: #dc3545;
 }
 
 .thumbnail2 {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     object-fit: fill;
     margin-right: 20px;
     margin-left: 10px;
@@ -542,7 +572,7 @@ dl {
 }
 
 .dl-container {
-    width: 70%; /* Adjust the width as needed */
+    width: 60%; /* Adjust the width as needed */
     margin: 0 auto; /* Centers the element horizontally */
     padding: 40px; /* Optional padding */
     
