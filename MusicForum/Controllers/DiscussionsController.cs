@@ -47,7 +47,9 @@ namespace MusicForum.Controllers
 
             // Find the discussion by ID and also ensure it belongs to the current user
             var discussion = await _context.Discussion
-                .FirstOrDefaultAsync(m => m.DiscussionId == id && m.ApplicationUserId == userId);
+                .Where(m => m.ApplicationUserId == userId)
+                .Include(d => d.ApplicationUser)
+                .ToListAsync();
 
             if (discussion == null)
             {

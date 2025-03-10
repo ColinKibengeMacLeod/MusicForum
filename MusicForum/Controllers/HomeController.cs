@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicForum.Data;
@@ -26,25 +27,22 @@ namespace MusicForum.Controllers
 
             return View(discussions);
         }
-
-
-        public async Task<IActionResult> GetDiscussion(int id)
+        public async Task<IActionResult> GetDiscussion(int? id)
         {
-            var discussion = await _context.Discussion
-                .Include(d => d.Comments)
-                .ThenInclude(c => c.ApplicationUser)  // Ensure the related user info for comments is included
-                .FirstOrDefaultAsync(m => m.DiscussionId == id);
-
-            // Ensure that Comments is not null
-            if (discussion != null && discussion.Comments == null)
+            if (id == null)
             {
-                discussion.Comments = new List<Comment>();
+                return NotFound();
             }
 
-            // Ensure that ImageFilename is set to null if it doesn't exist or is empty, or set a default value
-            if (discussion != null && string.IsNullOrEmpty(discussion.ImageFilename))
+            var discussion = await _context.Discussion
+                .Include(d => d.ApplicationUser) // Include creator's user info
+                .Include(d => d.Comments)
+                    .ThenInclude(c => c.ApplicationUser) // Include each comment's user info
+                .FirstOrDefaultAsync(m => m.DiscussionId == id); // <-- Removed userId check
+
+            if (discussion == null)
             {
-                discussion.ImageFilename = null;  // Or use a default image URL if needed
+                return NotFound(); // Discussion not found at all
             }
 
             return View(discussion);

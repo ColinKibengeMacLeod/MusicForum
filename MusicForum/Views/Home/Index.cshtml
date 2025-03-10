@@ -13,8 +13,11 @@
         int commentCount = item.Comments?.Count ?? 0;
 
         <div class="discussion-post">
+            <a class="comment-username" href="@Url.Action("Profile", "User", new { username = item.ApplicationUser?.Name })">
+                <span style="color: #DDDDDD">@@</span>@item.ApplicationUser?.Name
+            </a>
+
             <a href="@Url.Action("GetDiscussion", "Home", new { id = item.DiscussionId })" class="discussion-link">
-                <p class="comment-username"><span style="color: #DDDDDD">@@</span>@item.ApplicationUser?.Name</p> <!-- Display creator's name -->
 
                 <div class="discussion-content">
                     <h3 style="padding-top: 75px;">@item.Title</h3>

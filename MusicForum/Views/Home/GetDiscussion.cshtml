@@ -11,7 +11,9 @@
 
 <div class="get-center-container">
     <div class="get-discussion-post">
-        
+        <a class="comment-username" href="@Url.Action("Profile", "User", new { username = Model.ApplicationUser?.Name })">
+            <span style="color: #DDDDDD">@@@Model.ApplicationUser?.Name</span>
+        </a>
 
         <!-- Content gets centered if no image is available -->
         <div class="get-discussion-content @(string.IsNullOrEmpty(Model.ImageFilename) ? "centered-content" : "")">
@@ -27,6 +29,7 @@
                 @if (!string.IsNullOrEmpty(Model.Content))
                 {
                     <span class="drop-cap">@Model.Content.Substring(0, 1)</span>
+                    <span class="content-text">@Model.Content.Substring(1)</span>
 
                     @Model.Content.Substring(1)
                 }

@@ -9,17 +9,13 @@
 {
     <li class="nav-item">
             <a id="manage" class="nav-link" style="color: #DDDDDD;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-                Hey, @{
+                @{
                     var user = await UserManager.GetUserAsync(User);
                 }
 
                 @if (user != null)
                 {
-                    <span>@user.Name</span>
-                }
-                else
-                {
-                    <span>Guest</span>
+                    <span>Dashboard</span>
                 }
             </a>
     </li>
