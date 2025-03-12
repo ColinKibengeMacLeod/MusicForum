@@ -126,7 +126,7 @@ h3 {
     object-fit:fill;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     border-radius: 7px;
-    margin: 70px 30px 0px 0px;
+    margin: 0px 50px 0px 0px;
 }
 
 /* Discussion content container */
@@ -136,7 +136,7 @@ h3 {
 }
 
 .discussion-content h3 {
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 /* Metadata: comments count & date */
@@ -146,7 +146,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     width: 90%;
-    margin: 20px 0px;
+    margin: 30px 0px;
 }
 
 /* Comments count styling */
@@ -160,7 +160,7 @@ h3 {
 .comments-section {
     width: 700px;
     background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 0px 20px;
     border: 3px solid #DDDDDD;
     backdrop-filter: blur(1px); /* Apply a slight blur effect */
     border-radius: 0px 0px 7px 7px;
@@ -174,7 +174,7 @@ h3 {
     }
 
 .comment-username:hover {
-    color:#DDDDDD;
+   
 }
 
 .comments-list {
@@ -207,7 +207,7 @@ h3 {
 .pe-2 {
     display: block;
     width: 145px; /* Keep button width */
-    margin: 0px auto 35px auto; /* Centers horizontally */
+    margin: 50px auto 50px auto; /* Centers horizontally */
     padding: 10px;
     background: #007bff; /* Standard Bootstrap blue */
     color: #DDDDDD;
@@ -219,6 +219,7 @@ h3 {
 
 .pe-2:hover {
     background: #0056b3;
+    
 }
 
 .action-link {
@@ -286,11 +287,40 @@ color: #dc3545;
 .comment-username {
     font-family: "Special Elite", serif;
     font-weight: bold;
-    color: #DDDDDD;
+    color: #b8860b;
     margin-top: -170px; /* Adjust this value to move the username higher */
     margin-left: 45px;
     display: inline-flex; /* Align elements on the same line */
     align-items: center; /* Vertically center */
+    font-size: 18px;
+    text-decoration: none;
+}
+
+    .comment-username:hover {
+        color: #eeeee4
+    }
+
+.get-username {
+    font-family: "Special Elite", serif;
+    font-weight: bold;
+    color: #DDDDDD;
+    margin-top: -0px; /* Adjust this value to move the username higher */
+    margin-left: 45px;
+    margin-bottom: 10px;
+    display: inline-flex; /* Align elements on the same line */
+    align-items: center; /* Vertically centr */
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.comment-user {
+    font-family: "Special Elite", serif;
+    font-weight: bold;
+    color: #DDDDDD;
+    margin-top: 30px; /* Adjust this value to move the username higher */
+    margin-left: 45px;
+    display: inline-flex; /* Align elements on the same line */
+    align-items: center; /* Vertically centr */
     font-size: 18px;
     text-decoration: none;
 }
@@ -319,7 +349,7 @@ color: #dc3545;
     margin: 0px; /* Center the paragraph horizontally */
     display: block; /* Ensures the paragraph behaves like a block element */
     background-color: black;
-    padding: 40px 40px 20px 40px;
+    padding: 60px 50px 20px 50px;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     border-radius: 7px;
     font-weight: bold;
@@ -350,6 +380,7 @@ color: #dc3545;
     font-size: 14px;
     color: #DDDDDD;
     margin-top: 15px;
+    padding-right: 40px;
 }
 
 
@@ -366,6 +397,10 @@ color: #dc3545;
     font-weight: 200;
     font-size: 35px;
     -webkit-text-stroke: 1px #1F1F1F;
+}
+
+.discussion-title {
+    text-align: center;
 }
 
 /* Title styling */
@@ -420,8 +455,6 @@ color: #dc3545;
     width: 100%;
     max-width: 1200px;
     border: 3px solid #D3D3D3;
-    border-collapse: separate; /* Ensures border-radius works */
-    border-spacing: 0; /* Prevents gaps between borders */
     border-radius: 7px; /* Apply rounded corners */
     background-color: rgba(0, 0, 0, 0.4);
     color: #DDDDDD;
@@ -513,7 +546,7 @@ td {
     background: rgba(0, 0, 0, 0.4); /* Dark background with opacity */
     border: 3px solid #DDDDDD;
     border-radius: 7px;
-    padding: 50px 70px; /* Reduced padding to make the form smaller */
+    padding: 40px 70px 0px 70px; /* Reduced padding to make the form smaller */
     width: 100%; /* Adjust the width to 70% of its parent container */
     max-width: 750px; /* Prevents the form from getting too wide */
     margin: 10px auto 0 auto; /* Centers the form and moves it 10px down */

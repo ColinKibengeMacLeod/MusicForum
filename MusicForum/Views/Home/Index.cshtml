@@ -14,25 +14,25 @@
 
         <div class="discussion-post">
             <a class="comment-username" href="@Url.Action("Profile", "User", new { username = item.ApplicationUser?.Name })">
-                <span style="color: #DDDDDD">@@</span>@item.ApplicationUser?.Name
+                <span style="color: #f54235">@@</span>@item.ApplicationUser?.Name
             </a>
 
-            <a href="@Url.Action("GetDiscussion", "Home", new { id = item.DiscussionId })" class="discussion-link">
 
-                <div class="discussion-content">
-                    <h3 style="padding-top: 75px;">@item.Title</h3>
+            <div class="discussion-content">
+                <a href="@Url.Action("GetDiscussion", "Home", new { id = item.DiscussionId })" class="discussion-link">
+                    <h3 class="discussion-title">@item.Title</h3>
 
-                    <p class="discussion-meta">
-                        <span class="comments-count">💬 @commentCount @(commentCount == 1 ? "Comment" : "Comments")</span>
-                        <span class="date">@item.CreateDate.ToString("MMM dd, yyyy @ h:mm tt")</span>
-                    </p>
-                </div>
+                </a>
+                <p class="discussion-meta">
+                    <span class="comments-count">💬 @commentCount @(commentCount == 1 ? "Comment" : "Comments")</span>
+                    <span class="date">@item.CreateDate.ToString("MMM dd, yyyy @ h:mm tt")</span>
+                </p>
+            </div>
 
-                @if (!string.IsNullOrEmpty(imageUrl))
-                {
-                    <img src="@imageUrl" alt="@item.Content" class="thumbnail" />
-                }
-            </a>
+            @if (!string.IsNullOrEmpty(imageUrl))
+            {
+                <img src="@imageUrl" alt="@item.Content" class="thumbnail" />
+            }
         </div>
     }
 

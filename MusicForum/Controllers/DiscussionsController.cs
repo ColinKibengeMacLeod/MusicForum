@@ -43,21 +43,20 @@ namespace MusicForum.Controllers
                 return NotFound();
             }
 
-            var userId = _userManager.GetUserId(User);  // Get the ID of the logged-in user
+            var userId = _userManager.GetUserId(User);
 
-            // Find the discussion by ID and also ensure it belongs to the current user
             var discussion = await _context.Discussion
-                .Where(m => m.ApplicationUserId == userId)
                 .Include(d => d.ApplicationUser)
-                .ToListAsync();
+                .FirstOrDefaultAsync(m => m.DiscussionId == id && m.ApplicationUserId == userId);
 
             if (discussion == null)
             {
-                return Forbid();  // If the discussion doesn't exist or doesn't belong to the logged-in user, deny access
+                return Forbid();  // OR return NotFound(); if you prefer that
             }
 
-            return View(discussion);  // If everything is okay, return the discussion to the view
+            return View(discussion);
         }
+
 
 
         // GET: Discussions/Create

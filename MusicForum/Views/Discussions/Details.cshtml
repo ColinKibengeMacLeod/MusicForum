@@ -8,21 +8,21 @@
 
 <div class="dl-container">
     <dl class="row">
-        <dt>@Html.DisplayNameFor(model => model.Title)</dt>
+        <dt>@Html.DisplayNameFor(model => model.Title):</dt>
         <dd>@Html.DisplayFor(model => model.Title)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.Content)</dt>
+        <dt>@Html.DisplayNameFor(model => model.Content):</dt>
         <dd>@Html.Raw(System.Net.WebUtility.HtmlDecode(Model.Content))</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.ImageFilename)</dt>
-        <dd class="noBorder">
+        <dt>@Html.DisplayNameFor(model => model.ImageFilename):</dt>
+        <dd >
             @if (!string.IsNullOrEmpty(Model.ImageFilename))
             {
                 <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="@Model.Title" class="thumbnail2" />
             }
         </dd>
 
-        <dt>@Html.DisplayNameFor(model => model.CreateDate)</dt>
+        <dt>@Html.DisplayNameFor(model => model.CreateDate):</dt>
         <dd>@Html.DisplayFor(model => model.CreateDate)</dd>
     </dl>
 </div>

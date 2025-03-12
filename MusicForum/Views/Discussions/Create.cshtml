@@ -14,19 +14,19 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="mb-4">
-        <label asp-for="Title" class="control-label">Title</label>
+        <label asp-for="Title" class="control-label">Title:</label>
         <input asp-for="Title" class="form-control custom-input" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
 
     <div class="mb-4">
-        <label asp-for="Content" class="control-label">Discussion</label>
+        <label asp-for="Content" class="control-label">Content:</label>
 <textarea asp-for="Content" class="form-control custom-input" id="myTextarea" rows="5"></textarea>
         <span asp-validation-for="Content" class="text-danger"></span>
     </div>
 
     <div class="mb-4">
-        <label asp-for="ImageFile" class="form-label">Image</label>
+        <label asp-for="ImageFile" class="form-label">Image:</label>
         <input type="file" asp-for="ImageFile" class="form-control custom-input" />
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
@@ -37,8 +37,8 @@
     @*     <span asp-validation-for="CreateDate" class="text-danger"></span> *@
     @* </div> *@
 
-    <div class="mb-3">
-        <input type="submit" value="Create" class="pe-2" />
+    <div class="mb-4">
+        <button type="submit" class="pe-2 btn btn-primary">Create</button>
     </div>
 </form>
 

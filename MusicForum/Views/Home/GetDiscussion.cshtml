@@ -11,7 +11,7 @@
 
 <div class="get-center-container">
     <div class="get-discussion-post">
-        <a class="comment-username" href="@Url.Action("Profile", "User", new { username = Model.ApplicationUser?.Name })">
+        <a class="get-username" href="@Url.Action("Profile", "User", new { username = Model.ApplicationUser?.Name })">
             <span style="color: #DDDDDD">@@@Model.ApplicationUser?.Name</span>
         </a>
 
@@ -19,7 +19,6 @@
         <div class="get-discussion-content @(string.IsNullOrEmpty(Model.ImageFilename) ? "centered-content" : "")">
             <h3>@Model.Title</h3>
             <p class="news-article">
-                Hi there, <br /><br />
                 @if (!string.IsNullOrEmpty(Model.ImageFilename))
                 {
                     <img src="@Url.Content("/photos/" + Model.ImageFilename)"
@@ -47,14 +46,14 @@
                 @foreach (var comment in Model.Comments)
                 {
                     <li class="comment-item">
-                        <a id="manage" class="nav-link" style="color: #DDDDDD;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                        <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
                             @{
                                 // Access the user associated with the comment directly
                                 var commentUser = comment.ApplicationUser;
                             }
                             @if (commentUser != null)
                             {
-                                <span class="comment-username"><span class="indicator">@@</span>@commentUser.Name</span>
+                                <span class="comment-user"><span class="indicator">@@</span>@commentUser.Name</span>
                             }
                         </a>
                         <p>@comment.Content</p>

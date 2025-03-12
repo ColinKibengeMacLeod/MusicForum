@@ -12,28 +12,24 @@
     <input type="hidden" asp-for="CreateDate" />
     <input type="hidden" asp-for="ApplicationUserId" />
     <div class="mb-3">
-        <label asp-for="Title" class="form-label">Title</label>
+        <label asp-for="Title" class="form-label">Title:</label>
         <input asp-for="Title" class="form-control custom-input" />
     </div>
 
     <div class="mb-3">
-        <label asp-for="Content" class="form-label">Content</label>
+        <label asp-for="Content" class="form-label">Content:</label>
         <textarea asp-for="Content" class="form-control custom-input" rows="5"></textarea>
     </div>
 
     <!-- Current Image Section -->
     <div class="mb-3">
-        <label class="form-label">Current Image</label>
+        <label class="form-label">Image:</label>
         @if (!string.IsNullOrEmpty(Model.ImageFilename))
         {
             <div class="d-flex align-items-center">
                 <img src="@Url.Content("/photos/" + Model.ImageFilename)" alt="Current Image"
-                     style="width:60px; height: 60px; object-fit: cover; border-radius: 5px; margin-right: 10px; box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 35px, rgba(255, 255, 255, 0.1) 0px 0px 15px;" />
+                     style="width:300px; height: 300px; object-fit: cover; border-radius: 5px; margin: 0px auto; box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 35px, rgba(255, 255, 255, 0.1) 0px 0px 15px;" />
             </div>
-        }
-        else
-        {
-            <p>No image uploaded</p>
         }
     </div>
 
