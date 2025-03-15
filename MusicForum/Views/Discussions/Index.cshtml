@@ -9,59 +9,41 @@
 <p class="btn-container">
     <a asp-action="Create" class="pe-2">Create New</a>
 </p>
-
+<div class="discussionTable-wrapper">
 <table class="discussionTable">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageFilename)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
-            </th>
-            <th>
-                Actions
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th class="hide-mobile">@Html.DisplayNameFor(model => model.Content)</th>
+            <th class="hide-mobile">@Html.DisplayNameFor(model => model.ImageFilename)</th>
+            <th class="hide-mobile">@Html.DisplayNameFor(model => model.CreateDate)</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-                <td class="column-content">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td class="hide-mobile column-content">
                     @(item.Content.Length > 100 ? item.Content.Substring(0, 100) + "..." : item.Content)
                 </td>
-                <td>
+                <td class="hide-mobile">
                     @if (!string.IsNullOrEmpty(item.ImageFilename))
                     {
-                        <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)"
-                             alt="Image Thumbnail"
-                             style="object-fit: fill;">
+                        <img class="indexImg" src="@Url.Content("~/photos/" + item.ImageFilename)" alt="Image Thumbnail" />
                     }
                 </td>
-                <td>
+                <td class="hide-mobile">
                     @item.CreateDate.ToString("MMM dd, yyyy @ h:mm tt")
                 </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.DiscussionId" class="action-link edit">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    <a asp-action="Details" asp-route-id="@item.DiscussionId" class="action-link details">
-                        <i class="fas fa-info-circle"></i>
-                    </a>
-                    <a asp-action="Delete" asp-route-id="@item.DiscussionId" class="action-link delete">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DiscussionId" class="action-link edit"><i class="fas fa-edit"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.DiscussionId" class="action-link details"><i class="fas fa-info-circle"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.DiscussionId" class="action-link delete"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+</div>

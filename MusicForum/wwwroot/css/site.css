@@ -44,11 +44,12 @@ h4 {
     font-weight: bold;
     padding-top: 35px;
     padding-bottom: 40px;
-    text-shadow: -4px -4px 0 rgba(31, 31, 31, 0.4), /* Top-left */
-    4px 4px 0 rgba(31, 31, 31, 0.2), /* Bottom-right */
-    -6px 6px 0 rgba(31, 31, 31, 0.3), /* Extra depth */
-    6px -6px 0 rgba(31, 31, 31, 0.1); /* Opposite diagonal */
+    text-shadow: -4px -4px 0 rgba(31, 31, 31, 0.4), 4px 4px 0 rgba(31, 31, 31, 0.2), -6px 6px 0 rgba(31, 31, 31, 0.3), 6px -6px 0 rgba(31, 31, 31, 0.1);
+    transform: rotate(-15deg); /* Rotate text */
+    display: inline-block; /* Ensure rotation works */
+    transform-origin: center; /* Optional: Adjust rotation point */
 }
+
 
 h3 {
     font-family: "Special Elite", serif;
@@ -70,7 +71,7 @@ h3 {
     background: rgba(0, 0, 0, 0.3); /* Dark background with opacity */
     margin: 7px 0px 7px 0px;
     border: 3px solid #DDDDDD;
-    width: 800px;
+    width: 80%;
     transition: transform 0.5s ease, background 0.5s ease; /* Smooth transition */
     border-radius: 7px;
     text-align: center;
@@ -121,8 +122,10 @@ h3 {
 
 /* Thumbnail image */
 .thumbnail {
-    width: 100px; /* Uniform thumbnail size */
-    height: 100px;
+    max-width: 200px;
+    min-width: 200px; /* Uniform thumbnail size */
+    max-height: 200px;
+    min-height: 200px;
     object-fit:fill;
     box-shadow: rgba(221, 221, 221, 0.3) 0px 0px 25px, rgba(221, 221, 221, 0.15) 0px 0px 10px;
     border-radius: 7px;
@@ -451,17 +454,32 @@ color: #dc3545;
 
 /*Discussions/Index Page*/
 
+.discussionTable-wrapper {
+    width: 100%;
+    
+    margin: 0 auto;
+}
+
 .discussionTable {
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
     border: 3px solid #D3D3D3;
-    border-radius: 7px; /* Apply rounded corners */
+    border-radius: 7px;
     background-color: rgba(0, 0, 0, 0.4);
     color: #DDDDDD;
     text-align: center;
     margin: 20px auto;
-    backdrop-filter: blur(1px); /* Apply a slight blur effect */
+    backdrop-filter: blur(1px);
+    border-collapse: collapse;
+    table-layout: auto; /* allows columns to shrink if needed */
 }
+
+    .discussionTable td, .discussionTable th {
+        padding: 10px;
+        word-wrap: break-word;
+        max-width: 200px; /* prevent extra-wide content */
+        color: #DDDDDD;
+    }
 
 .discussionTable {
     border-collapse: separate;
@@ -483,16 +501,6 @@ color: #dc3545;
 
     .discussionTable tr:last-child td:last-child {
         border-bottom-right-radius: 10px;
-    }
-
-
-    .discussionTable th,
-    .discussionTable td {
-        padding: 20px; /* Adjusted for better spacing */
-        word-wrap: break-word; /* Prevents text overflow */
-        white-space: normal; /* Ensures text wraps properly */
-        min-width: 260px; /* Ensures columns are not too narrow */
-        color: #DDDDDD;
     }
 
 th {
@@ -661,4 +669,70 @@ dd.noBorder {
 
 .dl-container dt {
     margin-bottom: 10px; /* Add vertical space between each dt and dd */
+}
+
+
+@media (max-width: 768px) {
+  .discussion-post, .get-discussion-post, .comments-section {
+    width: 80%;
+    padding: 20px;
+    margin: 0px auto;
+  }
+
+    .discussion-post {
+        flex-flow: column;
+        margin: 10px 0px 10px 0px;
+    }
+
+    .get-discussion-post {
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+    }
+
+    h1 {
+        font-size: 45px;
+        -webkit-text-stroke: 1.5px #1F1F1F;
+    }
+
+    h3 {
+        font-size: 25px;
+        width: 100%;
+        -webkit-text-stroke: 0.5px #1F1F1F;
+    }
+
+  .thumbnail, .thumbnail2, .article-image {
+    width: 100%;
+    height: auto;
+    float: none;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .news-article {
+      max-width: 400px;
+  }
+
+  .content-text {
+      padding: 0px;
+      margin: 0px;
+  }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .discussionTable td, .discussionTable th {
+        font-size: 14px;
+        padding: 4px;
+    }
+
+    .discussionTable-wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .get-discussion-post {
+        margin: 0px auto;
+        width: 90%;
+    }
 }
